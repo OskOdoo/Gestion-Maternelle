@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="0">
+
+    	<record model="res.groups" id="gestion_adherent.group_gerant_user">
+    		<field name="name">Gérant de salle</field>
+    	</record>
+
+    </data>
+</openerp>
+

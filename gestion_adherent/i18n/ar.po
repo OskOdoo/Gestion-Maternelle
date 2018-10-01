@@ -1,0 +1,670 @@
+# Arabic translation for openobject-addons
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-21 14:07+0000\n"
+"PO-Revision-Date: 2014-08-14 16:10+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-01-22 07:43+0000\n"
+"X-Generator: Launchpad (build 17306)\n"
+
+
+
+
+
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.view_gym_adherent_search
+msgid "LES ADHERENTS"
+msgstr "أعضاء النادي"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_adherent
+msgid "Adhérents"
+msgstr "أعضاء النادي"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_abonnement
+msgid "Abonnements"
+msgstr "اشتراكات"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_type_abonnement
+msgid "Type abonnement"
+msgstr "نوع الاشتراك"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_emplois_du_temps
+msgid "Emplois du Temps"
+msgstr "جدول الزمن"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_group
+msgid "Groupe"
+msgstr "مجموعلت"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_programme
+msgid "Programmes"
+msgstr "برامج"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_adherent_ap
+msgid "A Payer Aujourd'hui"
+msgstr "للدفع اليوم"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_adherent_archive
+msgid "Archives des adhérents"
+msgstr "أعضاء مجمدة"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_adherent_archive
+msgid "Archives des adhérents"
+msgstr "أعضاء مجمدة"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_adherent_archive
+msgid "Archives des adhérents"
+msgstr "أعضاء مجمدة"
+
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.view_gym_programme_tree
+msgid "PROGRAMME"
+msgstr "برنامج"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.act_hr_adherent_2_auto_paie
+msgid "Historique de paiement"
+msgstr "تواريخ الدفع السابقة"
+
+#. module: gestion_adherent
+#: field:gym.adherent,name:0
+msgid "Nom adherent"
+msgstr "اللقب"
+
+#. module: gestion_adherent
+#: field:gym.adherent,date_debut:0
+msgid "Date debut"
+msgstr "تاريخ الانخراط"
+
+#. module: gestion_adherent
+#: field:gym.adherent,prenom:0
+msgid "Prénom adherent"
+msgstr "الاسم"
+
+#. module: gestion_adherent
+#: field:gym.adherent,cn_id:0
+msgid "Num CIN"
+msgstr "رقم ب,ت"
+
+#. module: gestion_adherent
+#: field:gym.adherent,date_nais:0
+msgid "Date de naissance"
+msgstr "تاريخ الازدياد"
+
+#. module: gestion_adherent
+#: field:gym.adherent,fidelite:0
+msgid "Catégorie"
+msgstr "فئة"
+
+#. module: gestion_adherent
+#: field:gym.adherent,abonnement_id:0
+msgid "Abonnement"
+msgstr "اشتراك"
+
+#. module: gestion_adherent
+#: field:gym.adherent,solde:0
+msgid "solde"
+msgstr "رصيد الأيام"
+
+#. module: gestion_adherent
+#: field:gym.adherent,tarif_tree:0
+msgid "Montant a payer"
+msgstr "سعر الاجمالي"
+
+#. module: gestion_adherent
+#: field:gym.adherent,image:0
+msgid "Photo"
+msgstr "صورة شخصية"
+
+#. module: gestion_adherent
+#: field:gym.adherent,cmpt:0
+msgid "Retardement"
+msgstr "أيام التأخير"
+
+#. module: gestion_adherent
+#: field:gym.adherent,sexe:0
+msgid "Sexe"
+msgstr "جنس"
+
+#. module: gestion_adherent
+#: field:gym.adherent,group_id:0
+msgid "Groupe"
+msgstr "مجموعة"
+
+#. module: gestion_adherent
+#: field:gym.adherent,date:0
+msgid "Date de prochaine paiement"
+msgstr "تاريج تجديد الاشتراك"
+
+#. module: gestion_adherent
+#: field:gym.adherent,partner_mobile:0
+msgid "Date de prochaine paiement"
+msgstr "رقم الهاتف"
+
+#. module: gestion_adherent
+#: field:gym.abonnement,name:0
+msgid "Ref"
+msgstr "رقم"
+
+#. module: gestion_adherent
+#: field:gym.abonnement,debut:0
+msgid "Depuis"
+msgstr "من"
+
+#. module: gestion_adherent
+#: field:gym.abonnement,jusqua:0
+msgid "jusqu'à"
+msgstr "الى غاية"
+
+#. module: gestion_adherent
+#: field:gym.abonnement,type_abonn:0
+msgid "Type Abonnement"
+msgstr "نوع الاشتراك"
+
+#. module: gestion_adherent
+#: field:gym.abonnement,cmpt:0
+msgid "Retardement"
+msgstr "أيام تأخير"
+
+#. module: gestion_adherent
+#: field:jour.heure,day:0
+msgid "les jours"
+msgstr "أيام"
+
+#. module: gestion_adherent
+#: field:jour.heure,heure_debut:0
+msgid "Heure Debut"
+msgstr "ساعة البداية"
+
+#. module: gestion_adherent
+#: field:jour.heure,heure_fin:0
+msgid "Heure fin"
+msgstr "ساعة الانتهاء"
+
+#. module: gestion_adherent
+#: field:jour.heure,jour_id:0
+msgid "jour heure"
+msgstr "جدول الزمن"
+
+#. module: gestion_adherent
+#: field:jour.heure,program_id:0
+msgid "Programme"
+msgstr "برنامج"
+
+#. module: gestion_adherent
+#: field:emplois.du.temps,jour_heure:0
+msgid "Journée"
+msgstr "يومية"
+
+#. module: gestion_adherent
+#: field:emplois.du.temps,name:0
+msgid "Planning"
+msgstr "التوقيت"
+
+#. module: gestion_adherent
+#: field:gym.programme,name:0
+msgid "Programme"
+msgstr "برنامج"
+
+#. module: gestion_adherent
+#: field:gym.tache,duree:0
+msgid "Durée"
+msgstr "وقت"
+
+#. module: gestion_adherent
+#: field:gym.tache,group_id:0
+msgid "Groupe"
+msgstr "مجموعة"
+
+#. module: gestion_adherent
+#: field:gym.tache,program_id:0
+msgid "Programme"
+msgstr "برنامج"
+
+#. module: gestion_adherent
+#: field:gym.group,name:0
+msgid "Groupe"
+msgstr "مجموعة"
+
+#. module: gestion_adherent
+#: field:gym.group,sequence:0
+msgid "Séquence"
+msgstr "رقم"
+
+#. module: gestion_adherent
+#: field:gym.group,membres:0
+msgid "Membres"
+msgstr "الأعضاء"
+
+#. module: gestion_adherent
+#: field:gym.group,emploisT:0
+msgid "Emplois du Temps"
+msgstr "جدول الزمن"
+
+#. module: gestion_adherent
+#: field:gym.tache,activity:0
+msgid "Activité"
+msgstr "أنشطة"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,name:0
+msgid "Référence"
+msgstr "رقم"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,debut:0
+msgid "Date debut"
+msgstr "تاريخ بداية الاشتراك"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,fin:0
+msgid "Date fin"
+msgstr "تاريخ نهاية الاشتراك"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,unit:0
+msgid "Tarif Séance"
+msgstr "سعر الحصة"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,nb_seance:0
+msgid "Nombre Séance"
+msgstr "عدد الحصص"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,options:0
+msgid "Options"
+msgstr "اضافات أخرى"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,services:0
+msgid "Services"
+msgstr "خدمات"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,mode_p:0
+msgid "Mode paiement"
+msgstr "طريقة الدفع"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,is_options:0
+msgid "Acheter Produit/Service ?"
+msgstr "اضافة خدمات أو اشتراء سلعة"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,abonnement_id:0
+msgid "Abonnement"
+msgstr "اشتراك"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,tarif_a_payer:0
+msgid "Tarif a payer"
+msgstr "الثمن الاجمالي"
+
+#. module: gestion_adherent
+#: field:paiement.abonnement,adherent:0
+msgid "Adherent"
+msgstr "العضو"
+
+#. module: gestion_adherent
+#: field:gym.service,name:0
+msgid "Service"
+msgstr "خدمات"
+
+#. module: gestion_adherent
+#: field:gym.service,tarif:0
+msgid "Tarif"
+msgstr "سعر"
+
+#. module: gestion_adherent
+#: field:gym.service,unit_mesure:0
+msgid "Unité"
+msgstr "وحدة"
+
+#. module: gestion_adherent
+#: field:gym.option,name:0
+msgid "Option"
+msgstr "اضافة"
+
+#. module: gestion_adherent
+#: field:gym.option,quantite:0
+msgid "Quantité"
+msgstr "كمية"
+
+#. module: gestion_adherent
+#: field:gym.option,tarif:0
+msgid "Tarif"
+msgstr "سعر"
+
+#. module: gestion_adherent
+#: field:gym.acheter.option,qty_dispo:0
+msgid "Disponible"
+msgstr "الكمية المتاحة"
+
+#. module: gestion_adherent
+#: field:gym.acheter.option,quantite:0
+msgid "Qty"
+msgstr "كمية"
+
+#. module: gestion_adherent
+#: field:gym.acheter.option,option:0
+msgid "Produits"
+msgstr "مواد"
+
+#. module: gestion_adherent
+#: field:gym.acheter.option,paiement_id:0
+msgid "Paiement"
+msgstr "دفع فاتورة"
+
+#. module: gestion_adherent
+#: field:gym.acheter.option,somme:0
+msgid "Somme"
+msgstr "المجموع"
+
+#. module: gestion_adherent
+#: field:gym.acheter.service,duree:0
+msgid "Durée"
+msgstr "المدة"
+
+#. module: gestion_adherent
+#: field:gym.acheter.service,service:0
+msgid "Service"
+msgstr "خدمة"
+
+#. module: gestion_adherent
+#: field:gym.acheter.service,paiement_id:0
+msgid "Paiement"
+msgstr "دفع"
+
+#. module: gestion_adherent
+#: field:gym.acheter.service,somme_service:0
+msgid "Somme"
+msgstr "المجموع"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.view_gym_adherent
+msgid "Abonnement valide jusqu'au"
+msgstr " تاريخ دفع ثمن الاشتراك"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.view_gym_adherent
+msgid "Jour restants :"
+msgstr "عدد الأيام المتبقية :"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.view_gym_adherent
+msgid "Historiques"
+msgstr "التواريخ  السابقة للدفع "
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.view_gym_adherent
+msgid "Informations Générales"
+msgstr "معلومات عامة"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.view_gym_adherent
+msgid "Abonnements"
+msgstr "معلومات حول الاشتراك"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.hr_kanban_view_employees
+msgid "Adherent Kanban"
+msgstr "أعضاء بالصور"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.hr_kanban_view_employees
+msgid "éxp:"
+msgstr "ن.ا"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.hr_kanban_view_employees
+msgid "Solde:"
+msgstr "أيام متبقية"
+
+#. module: gestion_adherent
+#: view:gym.adherent:gestion_adherent.hr_kanban_view_employees
+msgid "Absences:"
+msgstr "تأخرات"
+
+#. module: gestion_adherent
+#: view:paiement.abonnement:gestion_adherent.view_paieabonn_compute_wizard
+msgid "PAIEMENT"
+msgstr ""
+
+#. module: gestion_adherent
+#: view:paiement.abonnement:gestion_adherent.view_paieabonn_compute_wizard
+msgid "Total:"
+msgstr "المبلغ الاجمالي للدفع"
+
+#. module: gestion_adherent
+#: view:paiement.abonnement:gestion_adherent.view_paieabonn_compute_wizard
+msgid "Payer"
+msgstr "تم"
+
+#. module: gestion_adherent
+#: view:paiement.abonnement:gestion_adherent.view_paieabonn_compute_wizard
+msgid "Annuler"
+msgstr "الغاء"
+
+#. module: gestion_adherent
+#: view:paiement.abonnement:gestion_adherent.view_paieabonn_compute_wizard
+msgid "Voulez vous vraiment effectuez cette opération?"
+msgstr "من فضلك, أنقر على موافق لتأكيد العملية"
+
+#. module: gestion_adherent
+#: view:paiement.abonnement:gestion_adherent.view_paieabonn_compute_wizard
+msgid "DA"
+msgstr "دج"
+
+#. module: gestion_adherent
+#: selection:paiement.abonnement,mode_p:0
+msgid "Par séance"
+msgstr "بالحصة"
+
+#. module: gestion_adherent
+#: selection:paiement.abonnement,mode_p:0
+msgid "Par Mois"
+msgstr "بالشهر"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.open_view_gym_adherent
+msgid "Adhérents"
+msgstr "أعضاء النادي"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_paiement_abonnement_compute
+msgid "Opération de paiement"
+msgstr "مرحبا عزيزي المستخدم, أنت الآن على نافدة عمليات البيع و تجديد الاشتراك"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_option_paiement_prod
+msgid "Liste de produits"
+msgstr "قائمة المبيعات"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_service_paiement_service
+msgid "Liste des services"
+msgstr "قائمة الخدمات"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_paiement_abonnement_graph
+msgid "Statistiques"
+msgstr "احصائيات"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_paieabonn_historique_tree
+msgid "Historique des paiements"
+msgstr "جميع عمليات البيع السابقة"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_paieabonn_historique_serice
+msgid "Historique des paiements"
+msgstr "جميع الخدمات المدفوعة"
+
+#. module: gestion_adherent
+#: model:ir.actions.act_window,name:gestion_adherent.action_paieabonn_historique_prod
+msgid "Historique des paiements"
+msgstr "جميع المبيعات المشرية"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.objects/golden_gym
+msgid "Gestion des adhérents"
+msgstr "تسيير النادي"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.gym_adherent
+msgid "Adhérents et Abonnements"
+msgstr "أعضاء النادي و اشراكات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.gym_reglage
+msgid "Réglages"
+msgstr "اعدادات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_emplois_du_tmp
+msgid "Planning/Horraires"
+msgstr "توقيت و جدول الزمن"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_adherent
+msgid "Nos Adhérents"
+msgstr "كل أعضاء النادي"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_adherent_ap
+msgid "Renouveler Abonnements"
+msgstr "تجديد الاشتراك"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_adherent_archive
+msgid "Adhérents Archivés"
+msgstr "أعضاء غير نشيطة"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_abonnement1
+msgid "Abonnements"
+msgstr "اشتراكات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_group
+msgid "Groupes"
+msgstr "مجموعات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_programme
+msgid "Programme"
+msgstr "برنامج"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_gym_abonnement
+msgid "Type Abonnements"
+msgstr "أنواع الاشتراكات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_ca_parent
+msgid "Divers"
+msgstr "منوعات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_ca_paiement_abonnement
+msgid "Recettes et Statistiques"
+msgstr "احصائيات عامة"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_historique_paiement_abonnement_parent
+msgid "Historique des paiements"
+msgstr "تواريخ دفع سابقة"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_historique_paiement_abonnement
+msgid "Tous"
+msgstr "جميع العمليات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_historique_paiement_prod
+msgid "Produits vendus"
+msgstr "المبيعات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_historique_paiement_service
+msgid "Services payés"
+msgstr "الخدمات المدفوعة"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_paiement_seance_abonnement
+msgid "Ventes"
+msgstr "نافدة البيع"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_product_service
+msgid "Produits&Services""
+msgstr "مبيعات و خدمات"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_service_id
+msgid "Nos services"
+msgstr "خدمات النادي"
+
+#. module: gestion_adherent
+#: model:ir.ui.menu,name:gestion_adherent.menu_open_view_product_id
+msgid "Nos produits"
+msgstr "مواد متوفرة"
+
+#. module: gestion_adherent
+#: code:addons/gestion_adherent/objects/golden_gym.py:412
+#: code:addons/gestion_adherent/objects/golden_gym.py:417
+#: code:addons/gestion_adherent/objects/golden_gym.py:98
+#: code:addons/gestion_adherent/wizard/calcule_paiement_abonnement.py:233
+#: code:addons/gestion_adherent/wizard/calcule_paiement_abonnement.py:238
+#: code:addons/gestion_adherent/wizard/calcule_paiement_abonnement.py:312
+#, python-format
+msgid "Attention!"
+msgstr "حذاري,"
+
+#. module: gestion_adherent
+#: code:addons/gestion_adherent/objects/golden_gym.py:413
+#, python-format
+msgid "Date debut est supperieur au date Fin !."
+msgstr "تاريخ بداية الاشتراك أكبر من تاريخ النهاية"
+
+#. module: gestion_adherent
+#: code:addons/gestion_adherent/objects/golden_gym.py:99
+#, python-format
+msgid "Veillez vérifier l'existance du groupe "Absents" svp!"
+msgstr "يرجى التأكد من وجود المجموعة Absents المسمات بالشكل الصحيح"
+
+#. module: gestion_adherent
+#: code:addons/gestion_adherent/objects/golden_gym.py:100
+#, python-format
+msgid "-Ajoutez le groupe en cas n\'existe pas \n"
+msgstr "أظف المجمعة في حالة عدم وجودها"
+
+#. module: gestion_adherent
+#: code:addons/gestion_adherent/objects/golden_gym.py:101
+#, python-format
+msgid "-Ecrivez le nom du groupe Correctement ( Absents )"
+msgstr "أكتب المجموعة بشكلها الصحيح في حالة وجودها ( Absents )"
+

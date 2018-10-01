@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+    <template id="golden_gym.assets_backend" name="custom_tree_view_colors assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/golden_gym/static/src/js/java_script.js"/>
+            <link rel="stylesheet" href="/golden_gym/static/src/js/css_gym.js"/>
+        </xpath>
+    </template>
+</data>
+</openerp>
