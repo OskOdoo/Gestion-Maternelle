@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Custom report.-->
+<openerp>
+<data noupdate='0'>
+
+
+<template id="report_facture_id">
+        <link rel='stylesheet' href="/gestion_adherent/static/src/css/report_facture.css"/>
+    <t>    
+    <div class="page">
+    <tr t-foreach="docs"  t-as="o"   > 
+            <div class='title'><center><h2>SARL Petits Héros</h2><br/></center></div>
+            <div ><center><h1>FACTURE</h1></center></div>
+                     <img class="img img-responsive" align="center"  src="/gestion_adherent\static\img\logo2.png" style="  max-width: 50% ; position: right; margin-top: 25; margin-left: 10;padding:center;font-family:'palatino linotype', palatino, serif;" />
+           
+         	
+            <h5>Coopérative chahid Saad Mohamed Bir el djir Oran</h5>
+            <h5><strong>Tél :</strong> 05.41.56.83.18</h5>
+            <h5><strong>Email :</strong> contact.petitsheros@gmail.com</h5>
+            <div style='right:15px;position:absolute;'><h4><strong>Facturé Le :</strong> <span t-field="o.write_date"  t-field-options='{"format": "dd/MM/yyyy"}'/></h4></div>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.mydiv {right:15px;position:absolute;}
+.title {top:15px;position:absolute;}
+</style>
+
+<div class="col-xs-6">
+<table class="tg" id='mytable' style="undefined;table-layout: fixed; width: 372px; position:right">
+  <tr>
+    <th class="tg-0pky"><strong>Facturé a :</strong></th>
+    <th class="tg-0pky"><t t-if="o.adherent.pere"><span t-field="o.adherent.name"/><span t-field="o.adherent.pere"/></t> <t t-if="not o.adherent.pere">  <span t-field="o.adherent.mere"/></t></th>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><strong>Tel :</strong></td>
+    <td class="tg-0pky"><span t-field="o.adherent.partner_mobile"/></td>
+  </tr>
+  <br/>
+</table>
+</div>
+
+<br/>
+<br/>
+
+
+<table class="table table-condensed">
+	<thead>
+        <tr>
+                        <th>Prix Unitaire</th>
+        				<t t-if="o.adherent.abonnement_id.garderier"><th>Garderie</th></t>
+        				<t t-if="o.garderier"><th>Garderie</th></t>
+                        <t t-if="o.scholar"><th>Frais Scolaires</th></t>
+        </tr>
+    </thead>
+    <tbody class="sale_tbody">
+    <td class="tg-yw4l">
+    	<strong><span t-field="o.adherent.abonnement_id.type_abonn.tarif" style='font-size:21px;'/></strong>
+    </td>
+    <t t-if="o.adherent.abonnement_id.garderier">
+		<td class="tg-yw4l"><strong><span t-field="o.adherent.abonnement_id.tarif_garderier" style='font-size:21px;'/></strong>
+		</td>
+	</t>
+	<t t-if="o.garderier">
+		<td class="tg-yw4l"><strong><span t-field="o.tarif_garderier" style='font-size:21px;'/> X <span t-field="o.nb_jour_garderier" style='font-size:21px;'/> </strong>
+		</td>
+	</t>
+	<t t-if="o.scholar">
+ 		<td class="tg-yw4l">
+ 			<strong><span t-field="o.tarif_scholar" style='font-size:21px;'/></strong>
+ 		</td>
+	</t>
+    </tbody>
+	<!--
+	<tr>
+    <td class="tg-yw4l" colspan="3"><strong>Tarif Abonnement :</strong></td>
+    <td class="tg-yw4l"><strong><span t-field="o.adherent.abonnement_id.type_abonn.tarif" style='font-size:21px;'/></strong></td>
+  </tr>
+	<t t-if="o.adherent.abonnement_id.garderier">
+		<tr>
+		    <td class="tg-yw4l" colspan="3"><strong>Tarif Garderie :</strong></td>
+		    <td class="tg-yw4l"><strong><span t-field="o.adherent.abonnement_id.tarif_garderier" style='font-size:21px;'/></strong></td>
+	  	</tr>
+	</t>
+
+	<t t-if="o.garderier">
+		<tr>
+		    <td class="tg-yw4l" colspan="3"><strong>Tarif Garderie :</strong></td>
+		    <td class="tg-yw4l"><strong><span t-field="o.tarif_garderier" style='font-size:21px;'/> X <span t-field="o.nb_jour_garderier" style='font-size:21px;'/> </strong></td>
+	  	</tr>
+	</t>
+
+	<t t-if="o.scholar">
+		<tr>
+		    <td class="tg-yw4l" colspan="3"><strong>Frais Scolaire :</strong></td>
+		    <td class="tg-yw4l"><strong><span t-field="o.tarif_scholar" style='font-size:21px;'/></strong></td>
+	  	</tr>
+	</t>
+  <tr>
+    <td class="tg-yw4l" colspan="3"><strong>Total :</strong></td>
+    <t t-set="total" t-value="o.tarif_a_payer"/>
+    <t t-set="remise" t-value="o.remise"/>
+    <t t-set="t" t-value="total + remise"/>
+    <td class="tg-yw4l"><strong><span t-raw="t" style='font-size:21px;'/></strong></td>
+  </tr>
+  <t t-if="o.add_remise">
+  <tr>
+    <td class="tg-yw4l" colspan="3"><strong>Remise :</strong></td>
+    <td class="tg-yw4l"><strong><span t-field="o.remise" style='font-size:21px;'/></strong></td>
+  </tr>
+	</t>
+    <tr>
+    <td class="tg-yw4l" colspan="3"><strong>Net payé :</strong></td>
+    <td class="tg-yw4l"><strong><span t-field="o.net_payee" style='font-size:21px;'/></strong></td>
+  </tr>
+
+    <tr>
+	    <td class="tg-yw4l" colspan="3"><strong>Reste a payé :</strong></td>
+	    <td class="tg-yw4l"><strong><span t-field="o.reste_a_payer" style='font-size:21px;'/></strong></td>
+    </tr>-->
+</table>
+<table class="table table-condensed">
+  <thead>
+        <tr>
+            <th>Produit/Service</th>
+            <th>Qté/durée</th>
+            <th>Prix unitaire</th>
+        </tr>
+    </thead>
+    <tr  t-foreach="o.options"  t-as="op"   >
+    <tbody class="sale_tbody">
+    <td class="tg-yw4l">
+      <strong><span t-raw="op.option.name"/></strong>
+    </td>
+    <td class="tg-yw4l"><strong><span t-raw="op.quantite"/></strong>
+    </td>
+
+    <td class="tg-yw4l"><strong><span t-raw="op.option.tarif"/></strong>
+    </td>
+
+    </tbody>
+  </tr>
+</table>
+<t t-if="o.options">
+
+<!--table class="tg"> 
+  <tr>
+    <td class="tg-us36">Produit/Service</td>
+    <td class="tg-us36">Qté/durée</td>
+    <td class="tg-us36">Prix unit</td>
+    <td class="tg-yw4l">Somme</td>
+  </tr>
+  <tr  t-foreach="o.options"  t-as="op"   >
+    <td class="tg-us36"><span t-raw="op.option.name"/></td>
+    <td class="tg-us36"><span t-raw="op.quantite"/></td>
+    <td class="tg-us36"><span t-raw="op.option.tarif"/></td>
+    <td class="tg-yw4l"><span t-raw="op.somme"/></td>
+  </tr>
+   <tr  t-foreach="o.services"  t-as="s"   >
+    <td class="tg-us36"><span t-raw="s.service.name"/></td>
+    <td class="tg-us36"><span t-raw="s.duree"/></td>
+    <td class="tg-us36"><span t-raw="s.service.unit_mesure"/>/<span t-raw="s.service.tarif"/></td>
+    <td class="tg-yw4l"><span t-raw="s.somme_service"/></td>
+  </tr>
+
+</table-->
+</t>
+<div class="row">
+    <div class="col-xs-4 pull-right">
+        <table class="table table-condensed">
+			<tr class="border-black">
+				<td><strong>Total</strong></td>
+                <td class="text-right">
+                	    <t t-set="total" t-value="o.tarif_a_payer"/>
+					    <t t-set="remise" t-value="o.remise"/>
+					    <t t-set="t" t-value="total + remise"/>
+                    <span t-esc="t"
+                          />
+                </td>
+             </tr>
+             <t t-if="o.add_remise">
+             <tr>
+                <td>Remise</td>
+                    <td class="text-right">
+                    <span t-field="o.remise"
+                                    t-esc-options='{"widget": "monetary"}'/>
+                	</td>
+             </tr>
+         	 </t>
+            <tr>
+              <td>A payer</td>
+                    <td class="text-right">
+                    <span t-field="o.tarif_a_payer"
+                                    t-esc-options='{"widget": "monetary"}'/>
+                  </td>
+             </tr>
+              <tr class="border-black">
+                <td><strong>Net payé</strong></td>
+                    <td class="text-right">
+                        <span t-esc="o.net_payee"
+                                    t-field-options='{"widget": "monetary"}'/>
+                </td>
+               </tr>
+            </table>
+        </div>
+          <p style="font-size: 20px;left:20px;">
+                  <strong>Arrêter la facture à la somme de:</strong> 
+                  <span t-esc="o.get_amount_letter()"/> 
+                </p>
+      </div>
+      <br/>
+	<t t-if="o.fin">
+		Prochain paiement le: <strong><span t-field="o.fin" t-field-options='{"format": "dd/MM/yyyy"}'/></strong>
+	</t>
+        </tr>
+            <footer>
+				<div style='color:blue'><strong>Nous vous remercions de votre confiance</strong></div>
+			</footer>
+    </div>
+</t>
+
+</template>
+ 
+
+
+<report 
+            id="custom_report_facture"
+            model="paiement.abonnement"
+            string="Facture"
+            report_type="qweb-pdf"
+            name="gestion_adherent.report_facture_id"
+            attachment_use="False"
+            file="gestion_adherent.report_facture_id"
+        />
+
+        <record id="custom_report_facture" model="ir.actions.report.xml">
+               <field name="paperformat_id" ref="paperformat_for_adherent"/> 
+       </record>
+</data>
+</openerp>

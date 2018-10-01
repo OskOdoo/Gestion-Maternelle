@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+  <data>     
+
+<record id="act_hr_adherent_2_auto_paie" model="ir.actions.act_window">
+            <field name="res_model">paiement.abonnement</field>
+            <field name="view_type">form</field>
+            <field name="name">Historique de paiement</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'search_default_adherent': [active_id], 'default_adherent': active_id}</field>
+</record>
+
+<record id="view_gym_adherent" model="ir.ui.view">
+        <field name="name">LES ADHERENTS</field>
+        <field name="model">gym.adherent</field>
+        <field name="arch" type="xml">
+          <form name="GYM ADHERENT">
+            <header>
+                  <button String="Payer l'abonnement" name="open_wizard" type="object"   class="oe_highlight" context="{}"  attrs="{'invisible': [('mois_payee', '=', True)]}" />
+          </header>
+            <sheet>
+              <style>
+                  .openerp .my_image > img { height: 200px; width: 200px;  position:relative;} 
+                  .openerp .oe_form .oe_form_field_image img { max-width:200px; max-height: 210px; position:relative; }
+                  .openerp .solde { left:20px;}
+                  .openerp .oe_stat_button { left:1220px;}
+              </style>
+
+              <div class="solde" style='width:auto; position:relative;'>
+                  <label string="Jour restants : " attrs="{'invisible': [('solde', '=', 0)]}" style=" font-family='Times New Roman', Times, serif; font-size: 16px;color: #000000; "/>
+                  <field name="solde" style="color: #6A5ACD ; size=400%;  font-size: 36px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"  attrs="{'invisible': [('solde', '=', 0)]}"/>
+                  <label string="Jours de Retardements :" attrs="{'invisible': [('solde', '!=', 0)]}" style=" font-family='Times New Roman', Times, serif; font-size: 16px; color: #8B0000"/>
+                  <field name="cmpt"  attrs="{'invisible': [('solde', '!=', 0)]}" style="color: #DC143C ; size=400%;  font-size: 36px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                  <label string="Abonnement valide jusqu'au "  attrs="{'invisible': [('mois_payee', '=', False)]}" />
+                  <field name="mois_payee" string="Le mois est payé"  attrs="{'invisible': [('mois_payee', '=', False)]}" style=" font-family='Times New Roman', Times, serif; font-size: 16px; "/>
+                  <field name="date" readonly='True'/>
+                  <div  style='width:auto; position:relative;'>
+                    <button name="%(act_hr_adherent_2_auto_paie)d" 
+                            class="oe_stat_button" 
+                            icon="fa-strikethrough" 
+                            type="action"
+                            string='Historiques'
+                           >
+                    </button>
+                   </div>
+              </div>
+              <field name="image" widget='image' class= "my_image" style='right:400px; top: 40px; position:absolute;max-width:200px; max-height: 210px; '/>
+              <div string="Informations Générales" style='width:auto;'>
+              <group name="Informations Générales" string="Informations Générales" style='width:auto;'>
+                <field name="name" style='width:auto;'/>
+                <field name="prenom" style='width:auto;'/>
+                <field name="date_nais" style='width:auto;'/>
+                <field name="lieu_nais" style='width:auto;'/>
+                <field name="pere" style='width:auto;'/>
+                <field name="mere" style='width:auto;'/>
+                <field name="partner_mobile" style='width:auto;'/>
+                <field name="cn_id" style='width:auto;'/>
+              </group>
+              </div>
+              <notebook>
+              <page Name="Abonnements" string="Abonnements" style='width:auto;'>
+                <group>
+                  <field name="date_debut" style='width:auto;'/>
+                  <field name="fidelite" widget="priority" style='width:auto;' invisible='True'/>
+                  <field name="abonnement_id" style='width:auto;' widget='many2onebutton'/>
+                  <field name="group_id" style='width:auto;'/>
+                </group>
+              </page> 
+              <page string='Tuteurs'>
+                <group >
+                  <field name='parents' widget='many2many_kanban'/>
+                </group>
+              </page>      
+              <page string="Fiche Médicale 01">
+                <group col='4'>
+                  <field name="poids"/>
+                  <field name="taille"/>
+                  <field name="sexe" widget='radio' style='width:auto;'/>
+                  </group>
+                  <group col='6'>
+                    <field name="groupe_sanguin" style='width:auto;'/>
+                    <field name="rhesus" attrs="{'invisible': [('groupe_sanguin', '=', 0)]}" style='width:auto;'/>
+                 </group>
+                
+              </page>
+              <page string="Fiche Médicale 02">
+                <group>
+                  <field name="maladie_grave"/>
+                  <field name="maladie_grave_texte" attrs="{'invisible': [('maladie_grave', '=', False)]}" placeholder='Lesquels ? .....'/>
+
+                  <field name="allergique"/>
+                  <field name="allergique_texte" attrs="{'invisible': [('allergique', '=', False)]}" placeholder='Lesquels ? .....'/>
+
+                  <field name="regime"/>
+                  <field name="regime_texte" attrs="{'invisible': [('regime', '=', False)]}" placeholder='Lesquels ? .....'/>                 
+                </group>
+              </page>
+               <page string="Fiche Médicale 03">
+                <group>
+                  <field name="medicament"/>
+                  <field name="medicament_texte" attrs="{'invisible': [('medicament', '=', False)]}" placeholder='Lesquels ? .....'/>
+                </group>
+                <group col='4' string='Maladies'>
+                  <field name="diabete"/>
+                  <field name="asthme"/>
+                  <field name="affection_ca"/>
+                  <field name="epilepsie"/>
+                  <field name="affection_cu"/>
+                </group>
+              </page>
+              </notebook>
+              </sheet>
+          </form>
+        </field>
+</record>
+<record id="view_gym_adherent_search" model="ir.ui.view">
+        <field name="name">LES ADHERENTS</field>
+        <field name="model">gym.adherent</field>
+            <field name="arch" type="xml">
+                <search string="Recherche Adhérents">
+                    <field name="mois_payee"/>
+                    <field name="group_id"/>
+                    <separator/>
+                    <separator/>
+
+                    <group expand="0" string="Grouper Par">
+                        <filter string="Etat abonnements" domain="[]" context="{'group_by':'mois_payee'}"/>
+                        <filter string="Groupe" domain="[]" context="{'group_by':'group_id'}"/>
+                        <filter string="Sexe" domain="[]" context="{'group_by':'sexe'}"/>
+                        <filter string="Fidelité" domain="[]" context="{'group_by':'fidelite'}"/>
+                        <filter string="Utilisateur" domain="[]" context="{'group_by':'create_uid'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+
+    <record model="ir.ui.view" id="hr_kanban_view_employees">
+        <field name="name">Adherent Kanban</field>
+        <field name="model">gym.adherent</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <kanban  edit="false" quick_create="false" default_group_by="group_id">
+                <field name="group_id"/>
+                <field name="color"/>
+                <field name='date'/>
+                <field name="fidelite"/>
+                <field name="prenom"/>
+                <field name='image'/>
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <ul class="oe_kanban_tooltip">
+                            <li t-if="record.name.-raw_value"><b>Contact:</b> <field name="name"/></li>
+                        </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click oe_semantic_html_override">
+                            <div class="oe_dropdown_toggle oe_dropdown_kanban">
+                                <span class="oe_e">i</span>
+                                <ul class="oe_dropdown_menu">
+                                    <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                    <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                </ul>
+
+                            </div>
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div>
+                                    <img t-att-src="kanban_image('gym.adherent', 'image', record.image.raw_value)" t-att-title="record.image.value" width="100" height="130" class="oe_kanban_avatar pull-right"/>
+                                    <i><field name="name"/></i>
+                                    <field name="prenom"/><br/>
+                                    <t t-if="record.date.raw_value">éxp:<strong><field name="date" style='color:red;' widget='date'/></strong></t>
+                                </div>
+
+                                <div class="oe_kanban_bottom_right">
+                                    <div class="pull-left" groups="base.group_user">
+                                          <t t-if="record.solde.raw_value">Solde:<strong> <field name="solde" style="color:blue;"/></strong><br/></t>
+                                        <t t-if="record.cmpt.raw_value">Absences:<strong> <field name="cmpt" /></strong><br/></t>
+                                        <button String="Payer" name="open_wizard" type="object" icon='gtk-refresh' context="{}"  attrs="{'invisible': [('solde', '&gt;', 0)]}" class='oe_inline'/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+<record id="view_tree_gym_adherent" model="ir.ui.view">
+        <field name="name">Liste des adhérents</field>
+        <field name="model">gym.adherent</field>
+        <field name="arch" type="xml">
+
+          <tree colors="black:solde != 0;red:(date and (date&lt;current_date));blue:date and (date==current_date)" >
+              <field name="name"  />
+              <field name="prenom"  />
+              <field name='date' />
+              <field name="solde"  attrs="{'invisible': [('solde', '=', 0 )]}" />
+              <field name="mois_payee" invisible="True"/>
+              <field name="sexe" invisible="True"/>
+               <field name="tarif_tree" sum="total" invisible='True'>DA</field>
+              <button name="open_wizard" type="object" context="{}"  attrs="{'invisible': [('solde', '!=', 0)]}" class="oe_inline oe_stat_button" icon="terp-dolar_ok!" help="cliquez ici pour payer cette abonnement" colors="red:solde== 0 "/>
+          </tree>
+        </field>
+</record>
+
+<record id="view_paimenet_adherent_filter" model="ir.ui.view">
+            <field name="name">Les abonnements non payés</field>
+            <field name="model">gym.adherent</field>
+            <field name="arch" type="xml">
+                <search string="Non payé" create="false">
+                    <field name="name"/>
+                    <field name="tarif_tree"/>
+                    <field name="mois_payee" invisible="True"/>
+                    <separator/>
+
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Nom" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="Montant" domain="[]" context="{'group_by':'tarif_tree'}"/>
+                        <filter string="Abonnement" domain="[]" context="{'group_by':'abonnement_id'}"/>
+                        <filter string="Sexe" domain="[]" context="{'group_by':'sexe'}"/>
+                        <filter string="Groupe" domain="[]" context="{'group_by':'group_id'}"/>
+                    </group>
+               </search>
+            </field>
+</record>
+
+<record id="view_gym_abonnement" model="ir.ui.view">
+        <field name="name">ABONNEMENT</field>
+        <field name="model">gym.abonnement</field>
+        <field name="arch" type="xml">
+          <form name="Abonnement">
+            <sheet>
+              <div string="Abonnement">
+              <group string="Abonnement">
+                <field name="name"/>
+                <field name='mode_p'/>
+              </group>
+              <group col='4'>
+                <field name="debut" onchange='verifier_date' style='width:auto;'/>
+                <field name="jusqua" style='width:auto;'/>
+                <field name='solde_jour' placeholder='Tapez nombre des jours' attrs="{'invisible': [('mode_p', '!=', 'jours')]}" style='width:auto;'/>
+                <field name="solde" attrs="{'invisible': [('mode_p', '=', 'jours')]}" style='width:auto;'/>
+              </group>
+              <group>
+                <field name="type_abonn" style='width:auto;'/>
+              </group>
+              <group   colspan='4'>
+                <field name="garderier" />
+                <field name="tarif_garderier" placeholder='Tarif' attrs="{'invisible': [('garderier', '=', False)]}" style='width:auto;'/>
+                <field name="remise"/>
+                <field name="taux_remise" placeholder='Taux remise' attrs="{'invisible': [('remise', '=', False)]}" style='width:auto;'/>
+              </group>
+            </div>
+            <notebook>
+              <page string='Traçabilité de modification'>
+                <group>
+                  <field name="write_date" string='Modifié Le' readonly='1'/>
+                  <field name='write_uid' string='Modifié par' readonly='1'/>
+                </group>
+              </page>
+            </notebook>
+              </sheet>
+          </form>
+        </field>
+</record>
+
+<!-- ajouter le 14 fevrier 2017 -->
+<record id="view_gym_groupe" model="ir.ui.view">
+        <field name="name">Groupe</field>
+        <field name="model">gym.group</field>
+        <field name="arch" type="xml">
+          <form name="Groupe">
+            <sheet>
+              <div class="oe_title">
+                  <label for="name" class="oe_edit_only"/>
+                  <h1><field name="name" class="oe_inline"/></h1>
+              </div>
+            <group>
+                <field name="sequence"/>
+                <field name='membres' widget='many2many_tags'/>
+                <field name='moniteur'/>
+            </group>
+              <notebook>
+                              <page string='Emplois du temps'>
+                               <field name="emploisT">
+                                  <tree editable='bottom'>
+                                    <field name="name"/>
+                                    <field name="jour_heure">
+                                        <tree editable='bottom'>
+                                          <field name="day"/>
+                                          <field name="heure_debut" widget="float_time"/>
+                                          <field name="heure_fin" widget="float_time"/>
+                                        </tree>
+                                    </field>
+                                  </tree>
+                    </field>
+              </page>
+            </notebook>
+          </sheet>
+          </form>
+        </field>
+</record>
+
+<record id="view_gym_groupe_tree" model="ir.ui.view">
+        <field name="name">Groupe Tree</field>
+        <field name="model">gym.group</field>
+        <field name="arch" type="xml">
+          <tree name="Groupe">
+            <field name='sequence' style='width:auto;'/>
+            <field name='name' style='width:auto;'/>
+            <field name='membres' style='width:auto;'/>
+            <field name='emploisT' style='width:auto;'/>
+          </tree>
+        </field>
+</record>
+
+<!-- fin ajouter 14 fevrier -->
+
+<record id="view_gym_emplois_du_tmp" model="ir.ui.view">
+        <field name="name">Emplois du Temps</field>
+        <field name="model">emplois.du.temps</field>
+        <field name="arch" type="xml">
+          <form name="emplois du temps">
+            <sheet>
+              <div string="Emplois du temps">
+              <group string="Emplois du temps">
+                <field name="name"/>
+                <field name="jour_heure">
+                  <tree editable='bottom'>
+                    <field name="day"/>
+                    <field name="heure_debut" widget="float_time"/>
+                    <field name="heure_fin" widget="float_time"/>
+                    <field name='program_id'/>
+                  </tree>
+                </field>
+              </group>
+            </div>
+              </sheet>
+          </form>
+        </field>
+</record>
+
+
+<record id="view_gym_type_abonnement" model="ir.ui.view">
+        <field name="name">Type Abonnement</field>
+        <field name="model">type.abonnement</field>
+        <field name="arch" type="xml">
+          <form name="Type Abonnement">
+            <sheet>
+              <div string="Type Abonnement">
+              <group string="Type Abonnement">
+                <field name="name" />
+                <field name="tarif" placeholder='Tarif'/>
+              </group>
+            </div>
+            <notebook>
+
+              <page string='Autres Options'>
+                <field name='options' placeholder='Tapez ici les options de cet abonnement' widget='html'/>
+              </page>
+            </notebook>
+              </sheet>
+          </form>
+        </field>
+</record>
+
+
+<record id="view_gym_emplois_du_tmp_tree_view" model="ir.ui.view">
+        <field name="name">Emplois du Temps</field>
+        <field name="model">emplois.du.temps</field>
+        <field name="arch" type="xml">
+          <tree string="emplois du temps">
+                <field name="name"/>
+          </tree>
+        </field>
+</record>
+   
+
+<record id="view_gym_jour_heure" model="ir.ui.view">
+        <field name="name">jour.heure</field>
+        <field name="model">jour.heure</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="jour_id" invisible='True'/>
+                <group>
+                  <field name="day"/>
+                  <field name="heure_debut"/>
+                  <field name="heure_fin"/>
+                </group>
+            </form>
+        </field>
+</record>
+
+<record id="view_gym_programme_form" model="ir.ui.view">
+        <field name="name">PROGRAMME</field>
+        <field name="model">gym.programme</field>
+        <field name="arch" type="xml">
+            <form>
+              <sheet>
+              <div class="oe_title">
+                  <label for="name" class="oe_edit_only"/>
+                  <h1><field name="name" class="oe_inline"/></h1>
+              </div>
+              <group>
+                <field name='date_from'/>
+                <field name='date_to'/>
+                <field name='moniteurs' widget='many2many_kanban'/>
+              </group>
+                <notebook>
+                  <page string='Activités'>
+                    <field name="tache_ids"/>
+                  </page>
+                </notebook>
+              </sheet>
+            </form>
+        </field>
+</record>
+
+<record id="view_gym_programme_calendar" model="ir.ui.view">
+        <field name="name">PROGRAMME</field>
+        <field name="model">gym.programme</field>
+        <field name="arch" type="xml">
+                <calendar string="Programme" color="name"
+                          date_start="date_from" date_stop="date_to"
+                          quick_add="False">
+                    <field name="name"/>
+                    <field name="tache_ids"/>
+                    <field name='moniteurs'/>
+                </calendar>
+        </field>
+</record>
+
+<record id="view_gym_programme_tree" model="ir.ui.view">
+        <field name="name">PROGRAMME</field>
+        <field name="model">gym.programme</field>
+        <field name="arch" type="xml">
+          <tree string='Programme'>
+                  <field name="name"/>
+                  <field name='tache_ids'/>
+          </tree>
+        </field>
+</record>
+
+<record id="view_gym_tache_tree" model="ir.ui.view">
+        <field name="name">PROGRAMME</field>
+        <field name="model">gym.tache</field>
+        <field name="arch" type="xml">
+          <tree string='Programme' editable='bottom'>
+                  <field name="activity"/>
+                  <field name="duree" widget='float_time'/>
+                  <field name="group_id"/>
+          </tree>
+        </field>
+</record>
+
+
+
+
+<record id="view_parent_child_tree" model="ir.ui.view">
+        <field name="name">Les Parents</field>
+        <field name="model">parent.child</field>
+        <field name="arch" type="xml">
+         <tree>
+            <field name='name' />
+            <field name='prenom'/>
+            <field name='cn_id'/>
+         </tree> 
+       </field>
+</record>
+
+<record id="view_parent_child_form" model="ir.ui.view">
+        <field name="name">Les Parents</field>
+        <field name="model">parent.child</field>
+        <field name="arch" type="xml">
+          <form name="Les Parents">
+              <style>
+                  .openerp .my_image > img { height: 400px; width: 400px;  position:relative;} 
+                  .openerp .oe_form .oe_form_field_image img { max-width:400px; max-height: 410px; position:relative; }
+                  .openerp .solde { left:20px;}
+                  .openerp .oe_stat_button { left:1220px;}
+              </style>
+              <group string='Informations personnelles'>
+                <field name='name' style='width:auto;'/>
+                <field name='prenom' style='width:auto;'/>
+                <field name='cn_id' style='width:auto;'/>
+                <field name='mobile' style='width:auto;'/>
+                <field name='adress' style='width:auto;'/>
+                <field name='color' invisible='True'/>
+                <field name='photo' widget='image' class= "my_image" style='left:580px; top: 60px; position:absolute;'/>
+              </group>
+          </form>
+        </field>
+</record>
+<record id="view_parent_child_kanban" model="ir.ui.view">
+        <field name="name">Les Tuteurs</field>
+        <field name="model">parent.child</field>
+        <field name="priority">11</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name='name' />
+                <field name='prenom'/>
+                <field name='cn_id'/>
+                <field name='mobile'/>
+                <field name='adress'/>
+                <field name='color' invisible='True'/>
+                <field name='photo'/>
+              <templates>
+                    <t t-name="kanban-tooltip">
+                        <ul class="oe_kanban_tooltip">
+                            <li t-if="record.name.-raw_value"><b>Contact:</b> <field name="name"/></li>
+                        </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click oe_semantic_html_override">
+                            <div class="oe_dropdown_toggle oe_dropdown_kanban">
+                                <span class="oe_e">i</span>
+                                <ul class="oe_dropdown_menu">
+                                    <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                    <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                </ul>
+
+                            </div>
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div>
+                                    <img t-att-src="kanban_image('parent.child', 'photo', record.photo.raw_value)" t-att-title="record.photo.value" width="100" height="130" class="oe_kanban_avatar pull-right"/>
+                                    <i><field name="name"/></i>
+                                    <field name="prenom"/><br/>
+                                    <field name="mobile"/><br/>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+           </kanban>
+         </field>
+</record>
+
+
+
+      <record id="open_view_gym_adherent" model="ir.actions.act_window">
+          <field name="name">Adhérents</field>
+          <field name="res_model">gym.adherent</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">kanban,form,tree</field>
+          <field name="tree_view_id" ref="view_tree_gym_adherent"/>
+      </record>
+
+
+      <record id="open_view_gym_abonnement" model="ir.actions.act_window">
+          <field name="name">Abonnements</field>
+          <field name="res_model">gym.abonnement</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+
+      <record id="open_view_gym_type_abonnement" model="ir.actions.act_window">
+          <field name="name">Type abonnement</field>
+          <field name="res_model">type.abonnement</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="context">{'default_mode_p':'jours'}</field>
+      </record>
+
+
+      <record id="open_view_emplois_du_temps" model="ir.actions.act_window">
+          <field name="name">Emplois du Temps</field>
+          <field name="res_model">emplois.du.temps</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="open_view_group" model="ir.actions.act_window">
+          <field name="name">Groupe</field>
+          <field name="res_model">gym.group</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="open_view_programme" model="ir.actions.act_window">
+          <field name="name">Programmes</field>
+          <field name="res_model">gym.programme</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form,calendar</field>
+      </record>
+      
+      <record id="open_view_gym_adherent_ap" model="ir.actions.act_window">
+          <field name="name">A Payer Aujourd'hui</field>
+          <field name="res_model">gym.adherent</field>
+          <field name="view_type">form</field>
+          <field name="search_view_id" ref="view_paimenet_adherent_filter"/>
+          <field name="view_mode">kanban,search,tree,form</field>
+          <field name="domain">['&amp;',('group_id','!=',1),'|',('date','ilike', current_date),('date','&lt;', 'current_date)]</field>
+      </record>
+
+      <record id="open_view_gym_adherent_archive" model="ir.actions.act_window">
+          <field name="name">Archives des adhérents</field>
+          <field name="res_model">gym.adherent</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,search,kanban,form</field>
+          <field name="domain">[('group_id','=',1)]</field>
+      </record>
+
+      <record id="open_view_gym_parent" model="ir.actions.act_window">
+          <field name="name">Tuteurs</field>
+          <field name="res_model">parent.child</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form,kanban</field>
+      </record>
+      
+
+
+
+
+    <menuitem 
+        name="Gestion Maternelle"
+        id="golden_gym"
+        sequence="1" />
+
+    <menuitem 
+        name="Gestion des Ventes"
+        id="golden_gym_ventes"
+        sequence="2" />
+
+    <menuitem 
+        name="Statistiques"
+        id="golden_gym_state"
+        sequence="3" />
+
+    <menuitem 
+        id="gym_adherent" 
+        name="Enfants et Abonnements"
+        parent="golden_gym"
+        sequence="1"  />
+
+    <menuitem 
+        id="gym_adherent_vente_parent" 
+        name="Gérer les ventes"
+        parent="golden_gym_ventes"
+        sequence="1"  />
+
+    <menuitem 
+        id="gym_reglage" 
+        name="Réglages"
+        parent="golden_gym"
+        sequence="2"  />
+
+
+
+
+  <menuitem 
+        action="open_view_emplois_du_temps"
+        id="menu_open_view_emplois_du_tmp"
+        name="Planning/Horraires"
+        sequence="9" 
+        parent="gym_reglage" />
+
+    <menuitem 
+        action="open_view_gym_adherent"
+        id="menu_open_view_gym_adherent"
+        name="Nos Enfants"
+        sequence="3" 
+        parent="gym_adherent" />
+
+
+    <menuitem 
+        action="open_view_gym_adherent_ap"
+        id="menu_open_view_gym_adherent_ap"
+        name="Renouveler Abonnements"
+        sequence="4" 
+        parent="gym_adherent_vente_parent"/>
+
+    <menuitem 
+        action="open_view_gym_adherent_archive"
+        id="menu_open_view_gym_adherent_archive"
+        name="Adhérents Archivés"
+        sequence="5" 
+        parent="gym_adherent"/>
+
+
+    <menuitem 
+        action="open_view_gym_abonnement"
+        id="menu_open_view_gym_abonnement1"
+        name="Abonnements"
+        sequence="7" 
+        parent="gym_adherent_vente_parent" />
+
+    <menuitem 
+        action="open_view_group"
+        id="menu_open_view_gym_group"
+        name="Groupes"
+        sequence="9" 
+        parent="gym_reglage" />
+
+
+    <menuitem 
+        action="open_view_gym_type_abonnement"
+        id="menu_open_view_gym_abonnement"
+        name="Type Abonnements"
+        sequence="8" 
+        parent="gym_reglage" />
+
+    <menuitem 
+        action="open_view_gym_parent"
+        id="menu_open_view_parent"
+        name="Les Tuteurs"
+        sequence="8" 
+        parent="gym_reglage" />    
+
+     
+  </data>
+</openerp>

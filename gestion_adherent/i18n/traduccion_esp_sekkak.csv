@@ -1,0 +1,151 @@
+id;src;source;value;comments;module
+__export__.ir_translation_28123;Abonnement valide jusqu'au;Abonnement valide jusqu'au;Suscripción valida hasta;;gestion_adherent
+__export__.ir_translation_28124;Nom adherent;Nom adherent;Apelido;;gestion_adherent
+__export__.ir_translation_28125;Prénom adherent;Prénom adherent;Nombre;;gestion_adherent
+__export__.ir_translation_28126;Date de naissance;Date de naissance;Fecha de nacimiento;;gestion_adherent
+__export__.ir_translation_28127;Mobile;Mobile;Teléfono;;gestion_adherent
+__export__.ir_translation_28128;Sexe;Sexe;Sexo;;gestion_adherent
+__export__.ir_translation_28129;Abonnements;Abonnements;Suscripciones;;gestion_adherent
+__export__.ir_translation_28130;Date debut;Date debut;Fecha de inicio;;gestion_adherent
+__export__.ir_translation_28131;Catégorie;Catégorie;Categoría;;gestion_adherent
+__export__.ir_translation_28132;Abonnement;Abonnement;Suscripción;;gestion_adherent
+__export__.ir_translation_28133;Groupe;Groupe;Grupo;;gestion_adherent
+__export__.ir_translation_28134;Jour restants;Jour restants;Dias restantes;;gestion_adherent
+__export__.ir_translation_43775;Activités;Activités;Actividades;FALSE;gestion_adherent
+__export__.ir_translation_43777;Annuler;Annuler;Anular;FALSE;gestion_adherent
+__export__.ir_translation_43778;Autres Options;Autres Options;Otras opciones;FALSE;gestion_adherent
+__export__.ir_translation_43788;Date;Date;Fecha;FALSE;gestion_adherent
+__export__.ir_translation_43790;Date debut;Date debut;Fecha de inicio;FALSE;gestion_adherent
+__export__.ir_translation_43795;Effectué Le;Effectué Le;Efectuado en;FALSE;gestion_adherent
+__export__.ir_translation_43796;Effectué Par;Effectué Par;Efectuado por;FALSE;gestion_adherent
+__export__.ir_translation_43798;Emplois du temps;Emplois du temps;Calendario;FALSE;gestion_adherent
+__export__.ir_translation_43800;Group Par;Group Par;Agrupar por;FALSE;gestion_adherent
+__export__.ir_translation_43803;History;History;Historial;FALSE;gestion_adherent
+__export__.ir_translation_43804;History;History;Historial;FALSE;gestion_adherent
+__export__.ir_translation_43838;Mode Paiement;Mode Paiement;Modo de Pago;FALSE;gestion_adherent
+__export__.ir_translation_43840;Montant;Montant;Cantidad;FALSE;gestion_adherent
+__export__.ir_translation_43845;PAIEMENT;PAIEMENT;Pago;FALSE;gestion_adherent
+__export__.ir_translation_43850;Parametrs;Parametrs;Parámetros;FALSE;gestion_adherent
+__export__.ir_translation_43851;Parametrs;Parametrs;Parámetros;FALSE;gestion_adherent
+__export__.ir_translation_43852;Parametrs;Parametrs;Parámetros;FALSE;gestion_adherent
+__export__.ir_translation_43853;Payer;Payer;Pagar;FALSE;gestion_adherent
+__export__.ir_translation_43857;Produits;Produits;Productos;FALSE;gestion_adherent
+__export__.ir_translation_43858;Produits;Produits;Productos;FALSE;gestion_adherent
+__export__.ir_translation_43859;Programme;Programme;Programas;FALSE;gestion_adherent
+__export__.ir_translation_43865;Search paiement;Search paiement;Buscar pago;FALSE;gestion_adherent
+__export__.ir_translation_43867;Services;Services;Servicios;FALSE;gestion_adherent
+__export__.ir_translation_43868;Services;Services;Servicios;FALSE;gestion_adherent
+__export__.ir_translation_43873;Tapez ici les options de cet abonnement;Tapez ici les options de cet abonnement;Escribe aqui los opciones de esta suscripción;FALSE;gestion_adherent
+__export__.ir_translation_43875;Tarif;Tarif;Tarifa;FALSE;gestion_adherent
+__export__.ir_translation_43877;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_43878;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_43879;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_43880;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_43881;Total:;Total:;Total:;FALSE;gestion_adherent
+__export__.ir_translation_43882;Total:;Total:;Total:;FALSE;gestion_adherent
+__export__.ir_translation_43884;Type Abonnement;Type Abonnement;Tipo de suscripción;FALSE;gestion_adherent
+__export__.ir_translation_43887;Utilisateur;Utilisateur;Usuario;FALSE;gestion_adherent
+__export__.ir_translation_43889;Voulez vous vraiment effectuez cette opération?;Voulez vous vraiment effectuez cette opération?;Confirma para terminar la opéración;FALSE;gestion_adherent
+__export__.ir_translation_43890;abonnement adherent;abonnement adherent;Suscripción de miembro;FALSE;gestion_adherent
+__export__.ir_translation_43891;adherent;adherent;Miembro;FALSE;gestion_adherent
+__export__.ir_translation_43895;tarif_a_payer;tarif_a_payer;Tarifa a pagar;FALSE;gestion_adherent
+__export__.ir_translation_44492;Abonnements;Abonnements;Suscripciones;FALSE;gestion_adherent
+__export__.ir_translation_44493;Adhérents Archivés;Adhérents Archivés;Miembro archivado;FALSE;gestion_adherent
+__export__.ir_translation_44494;Adhérents et Abonnements;Adhérents et Abonnements;Miembro y suscripción;FALSE;gestion_adherent
+__export__.ir_translation_44495;CARTE D'ADHERENT;CARTE D'ADHERENT;Tarjeta de miembro;FALSE;gestion_adherent
+__export__.ir_translation_44496;Carte d'adherent;Carte d'adherent;Tarjeta de miembro;FALSE;gestion_adherent
+__export__.ir_translation_44497;Client;Client;Cliente;FALSE;gestion_adherent
+__export__.ir_translation_44498;Date d'entrée:;Date d'entrée:;Fecha de entrada;FALSE;gestion_adherent
+__export__.ir_translation_44499;Date de naissance:;Date de naissance:;Fecha de  nacimiento;FALSE;gestion_adherent
+__export__.ir_translation_44500;Date facture :;Date facture :;Fecha de factura;FALSE;gestion_adherent
+__export__.ir_translation_44501;Divers;Divers;Diverso;FALSE;gestion_adherent
+__export__.ir_translation_44502;Facture;Facture;Factura;FALSE;gestion_adherent
+__export__.ir_translation_44503;Gestion des adhérents;Gestion des adhérents;Gestión de miembros;FALSE;gestion_adherent
+__export__.ir_translation_44504;Golden Gym Tlemcen;Golden Gym Tlemcen;Golden Gym Tlemcen;FALSE;gestion_adherent
+__export__.ir_translation_44505;Groupes;Groupes;Grupos;FALSE;gestion_adherent
+__export__.ir_translation_44506;Historique des paiements;Historique des paiements;Historial de pagos;FALSE;gestion_adherent
+__export__.ir_translation_44507;Nom:;Nom:;Apellido;FALSE;gestion_adherent
+__export__.ir_translation_44508;Nos Adhérents;Nos Adhérents;Nuestros miembros;FALSE;gestion_adherent
+__export__.ir_translation_44509;Nos produits;Nos produits;Nuestros Productos;FALSE;gestion_adherent
+__export__.ir_translation_44510;Nos services;Nos services;Nuestros Servicios;FALSE;gestion_adherent
+__export__.ir_translation_44511;Planning/Horraires;Planning/Horraires;Calendario / Horario;FALSE;gestion_adherent
+__export__.ir_translation_44512;Prix unit;Prix unit;Precio unitario;FALSE;gestion_adherent
+__export__.ir_translation_44513;Produit/Service;Produit/Service;Producto\Servicio;FALSE;gestion_adherent
+__export__.ir_translation_44514;Produits vendus;Produits vendus;Productos vendidos;FALSE;gestion_adherent
+__export__.ir_translation_44515;Produits&Services;Produits&Services;Productos&Servicios;FALSE;gestion_adherent
+__export__.ir_translation_44516;Programme;Programme;Programa;FALSE;gestion_adherent
+__export__.ir_translation_44517;Prénom:;Prénom:;Nombre;FALSE;gestion_adherent
+__export__.ir_translation_44518;Qté/durée;Qté/durée;Qté/duración;FALSE;gestion_adherent
+__export__.ir_translation_44519;Recettes et Statistiques;Recettes et Statistiques;Ingresos y Estadísticas;FALSE;gestion_adherent
+__export__.ir_translation_44520;Renouveler Abonnements;Renouveler Abonnements;Renovar suscripciones;FALSE;gestion_adherent
+__export__.ir_translation_44521;Réglages;Réglages;Ajustes;FALSE;gestion_adherent
+__export__.ir_translation_44522;Services payés;Services payés;Servicios pagado;FALSE;gestion_adherent
+__export__.ir_translation_44523;Somme;Somme;Suma;FALSE;gestion_adherent
+__export__.ir_translation_44524;Total :;Total :;Total :;FALSE;gestion_adherent
+__export__.ir_translation_44525;Tous;Tous;Todo;FALSE;gestion_adherent
+__export__.ir_translation_44526;Type Abonnements;Type Abonnements;Tipo de suscripción;FALSE;gestion_adherent
+__export__.ir_translation_44527;Ventes;Ventes;Venta;FALSE;gestion_adherent
+__export__.ir_translation_45427;Abonnement;Abonnement;Suscripción;FALSE;gestion_adherent
+__export__.ir_translation_45428;Abonnement;Abonnement;suscripción;FALSE;gestion_adherent
+__export__.ir_translation_45430;Abonnement valide jusqu'au;Abonnement valide jusqu'au;Suscripción válida hasta;FALSE;gestion_adherent
+__export__.ir_translation_45431;Abonnements;Abonnements;Suscripción;FALSE;gestion_adherent
+__export__.ir_translation_45432;Absences:;Absences:;Ausencias;FALSE;gestion_adherent
+__export__.ir_translation_45442;Contact:;Contact:;Contacto:;FALSE;gestion_adherent
+__export__.ir_translation_45460;Delete;Delete;Borrar;FALSE;gestion_adherent
+__export__.ir_translation_45464;Effectué Le;Effectué Le;Efectuado el;FALSE;gestion_adherent
+__export__.ir_translation_45465;Effectué Le;Effectué Le;Efectuado el;FALSE;gestion_adherent
+__export__.ir_translation_45466;Effectué Par;Effectué Par;Efectuado por;FALSE;gestion_adherent
+__export__.ir_translation_45467;Effectué Par;Effectué Par;Efectuado por;FALSE;gestion_adherent
+__export__.ir_translation_45468;Emplois du temps;Emplois du temps;Calendario;FALSE;gestion_adherent
+__export__.ir_translation_45470;Etat abonnements;Etat abonnements;Estado de las suscripciones;FALSE;gestion_adherent
+__export__.ir_translation_45471;Fidelité;Fidelité;fidelidad;FALSE;gestion_adherent
+__export__.ir_translation_45472;Group By;Group By;Agrupar por;FALSE;gestion_adherent
+__export__.ir_translation_45473;Groupe;Groupe;Grupo;FALSE;gestion_adherent
+__export__.ir_translation_45474;Groupe;Groupe;Grupo;FALSE;gestion_adherent
+__export__.ir_translation_45477;Grouper Par;Grouper Par;Agrupar por;FALSE;gestion_adherent
+__export__.ir_translation_45479;Historiques;Historiques;Historial;FALSE;gestion_adherent
+__export__.ir_translation_45486;Informations Générales;Informations Générales;Informaciones générales;FALSE;gestion_adherent
+__export__.ir_translation_45487;Jour restants :;Jour restants :;Días restantes:;FALSE;gestion_adherent
+__export__.ir_translation_45488;Jours de Retardements :;Jours de Retardements :;Días de retraso;FALSE;gestion_adherent
+__export__.ir_translation_45498;Le mois est payé;Le mois est payé;mes pagado;FALSE;gestion_adherent
+__export__.ir_translation_45501;Modifié Le;Modifié Le;Modificado en;FALSE;gestion_adherent
+__export__.ir_translation_45502;Modifié par;Modifié par;Modificado por;FALSE;gestion_adherent
+__export__.ir_translation_45503;Montant;Montant;precio;FALSE;gestion_adherent
+__export__.ir_translation_45506;Nom;Nom;Nombre;FALSE;gestion_adherent
+__export__.ir_translation_45507;Non payé;Non payé;"No pagado
+";FALSE;gestion_adherent
+__export__.ir_translation_45510;Parametrs;Parametrs;Parámetros;FALSE;gestion_adherent
+__export__.ir_translation_45511;Parametrs;Parametrs;Parámetros;FALSE;gestion_adherent
+__export__.ir_translation_45512;Parametrs;Parametrs;Parámetros;FALSE;gestion_adherent
+__export__.ir_translation_45514;Programme;Programme;Programa;FALSE;gestion_adherent
+__export__.ir_translation_45518;Recherche Adhérents;Recherche Adhérents;Buscar miembro;FALSE;gestion_adherent
+__export__.ir_translation_45521;Sexe;Sexe;Sexo;FALSE;gestion_adherent
+__export__.ir_translation_45522;Sexe;Sexe;Sexo;FALSE;gestion_adherent
+__export__.ir_translation_45523;Solde:;Solde:;Saldo;FALSE;gestion_adherent
+__export__.ir_translation_45530;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_45531;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_45532;Total;Total;Total;FALSE;gestion_adherent
+__export__.ir_translation_45533;Traçabilité de modification;Traçabilité de modification;Seguimiento de la modificación;FALSE;gestion_adherent
+__export__.ir_translation_45535;Utilisateur;Utilisateur;Usuarios;FALSE;gestion_adherent
+__export__.ir_translation_45538;cliquez ici pour payer cette abonnement;cliquez ici pour payer cette abonnement;Haga clic aquí para pagar esta suscripción;FALSE;gestion_adherent
+__export__.ir_translation_45539;emplois du temps;emplois du temps;Calendario;FALSE;gestion_adherent
+__export__.ir_translation_45540;total;total;total;FALSE;gestion_adherent
+__export__.ir_translation_45541;éxp:;éxp:;éxp:;FALSE;gestion_adherent
+__export__.ir_translation_45743;A Payer Aujourd'hui;A Payer Aujourd'hui;A Pagar hoy;FALSE;gestion_adherent
+__export__.ir_translation_45744;Abonnements;Abonnements;Suscripción;FALSE;gestion_adherent
+__export__.ir_translation_45745;Adhérents;Adhérents;Miembros;FALSE;gestion_adherent
+__export__.ir_translation_45746;Archives des adhérents;Archives des adhérents;Arch de miembros;FALSE;gestion_adherent
+__export__.ir_translation_45747;Emplois du Temps;Emplois du Temps;Calendario;FALSE;gestion_adherent
+__export__.ir_translation_45748;Groupe;Groupe;Grupo;FALSE;gestion_adherent
+__export__.ir_translation_45749;Historique de paiement;Historique de paiement;Historial de pagos;FALSE;gestion_adherent
+__export__.ir_translation_45750;Historique des paiements;Historique des paiements;Historial de pagos;FALSE;gestion_adherent
+__export__.ir_translation_45751;Historique des paiements;Historique des paiements;Historial de pagos;FALSE;gestion_adherent
+__export__.ir_translation_45752;Historique des paiements;Historique des paiements;Historial de pagos;FALSE;gestion_adherent
+__export__.ir_translation_45753;Liste de produits;Liste de produits;Lista de productos;FALSE;gestion_adherent
+__export__.ir_translation_45754;Liste de produits;Liste de produits;Lista de productos;FALSE;gestion_adherent
+__export__.ir_translation_45755;Opération de paiement;Opération de paiement;Transacción de pago;FALSE;gestion_adherent
+__export__.ir_translation_45756;Programmes;Programmes;Programas;FALSE;gestion_adherent
+__export__.ir_translation_45757;Statistiques;Statistiques;estadísticas;FALSE;gestion_adherent
+__export__.ir_translation_45758;Type abonnement;Type abonnement;Tipo de suscripción;FALSE;gestion_adherent
+__export__.ir_translation_45764;Jour restants;Jour restants;Dias restantes;;gestion_adherent
+__export__.ir_translation_45765;Groupe;Groupe;Grupo;;gestion_adherent

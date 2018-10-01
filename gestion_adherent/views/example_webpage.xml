@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+    <template id="example_page" name="Example page" page="True">
+      <t t-call="website.layout">
+        <div class="oe_structure">
+          <div class="container">
+            <center><h3>Bienvenu Chez Ma salle de sport</h3></center>
+            <p>
+              Odoo.osk@gmail.com<br/>
+              <a t-attf-href="/example/detail" class="btn btn-info">Company detail page</a>
+            </p>
+          </div>
+        </div>
+      </t>
+    </template>
+
+
+<template id="detail_page" name="Detail page" page="True">
+      <t>
+        <div class="oe_structure">
+          <div class="container">
+            <center><h3>Company detail page</h3></center>
+            <t t-foreach="companies" t-as="company">
+              <h4><span t-esc="company.name"/></h4>
+              <table class="table-striped table">
+                <tr>
+                  <td>Phone:</td>
+                  <td><span t-esc="company.phone"/></td>
+                </tr>
+                <tr>
+                  <td>E-mail:</td>
+                  <td><span t-esc="company.email"/></td>
+                </tr>
+                <tr>
+                  <td>Address:</td>
+                  <td>
+                    <span t-esc="company.street"/> <span t-esc="company.street2"/><br/>
+                    <span t-esc="company.city"/> <span t-esc="company.country_id.name"/>
+                  </td>
+                </tr>
+              </table>
+            </t>
+            <t t-foreach="adherent" t-as="a">
+                <span t-esc='a.name'/>  <span t-esc='a.prenom'/>
+                <label string="SOLDE :" style="color: #6A5ACD ; size=400%;  font-size: 36px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);right:98px;"/>
+                <span t-esc="a.solde" style="color: #6A5ACD ; size=400%;  font-size: 36px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);right:100px;"/>JOURS<br/>
+
+            </t>
+          </div>
+        </div>
+      </t>
+    </template>
+</data>
+</openerp>

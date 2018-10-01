@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Custom report.-->
+<openerp>
+<data noupdate='0'>
+
+
+<template id="report_fiche_medicale_id">
+        <link rel='sstylesheet' href="/gestion_adherent/static/src/css/report_facture.css"/>
+    <t>    
+    <div class="page">
+    <tr t-foreach="docs"  t-as="o"   > 
+            <div class='title' style='font-family:"Lucida Handwriting";position:absolute;top:100px;'><h3>SARL Petits Héros</h3><br/></div>
+            <center><div style='position:absolute;top:20px;left:250px;;'><h1>Fiche Médicale D'information</h1></div></center>
+                     <img class="img img-responsive" align="center"  src="/gestion_adherent\static\img\logo2.png" style="  max-width: 50% ; position: right; margin-top: 25; margin-left: 10;padding:center;font-family:'palatino linotype', palatino, serif;" />
+           
+         	
+            <div style="font-size: 18px;right:20px;top:220px; position:absolute;">
+            <P><strong>Nom et Prenom:</strong> <span t-field="o.name"/> <span t-field="o.prenom"/> </P>
+            <P><strong>Date et Lieu de Naissance :</strong> <span t-field="o.date_nais"/> à <span t-field="o.lieu_nais"/> </P>
+            <P><strong>Classe :</strong> <span t-field="o.group_id"/> </P>
+            </div>
+
+            <div style="font-size: 18px;top:400px;position:absolute;">
+              <p>
+                <strong>-Groupe Sanguin:</strong> 
+                <span t-field="o.groupe_sanguin"/>
+                <t t-if=" 'pos' in str(o.rhesus)">+</t>
+                <t t-if="'pos' not in str(o.rhesus)">-</t> ,
+                <strong> Poids:</strong> 
+                <span t-field="o.poids"/>kg
+              </p>
+
+            <div ><strong>-Maladie ou Interventions antèrieures graves ( lesquelles et quand )?:</strong>
+              <t t-if="o.maladie_grave">.....OUI.....<br/>
+               ...<span t-esc="o.maladie_grave_texte"/>.....
+              </t>
+              <t t-if="not o.maladie_grave">.....NON.....<br/>
+               <span t-esc="o.maladie_grave_texte"/>
+              </t>
+            </div><br/><br/><br/>
+            <div><strong>-L'enfant est-il alergique ou sensible à certains médicaments ? :</strong>
+              <t t-if="o.allergique">....OUI....<br/>
+               ....<span t-esc="o.allergique_texte"/>....
+              </t>
+              <t t-if="not o.allergique">....NON....<br/>
+               <span t-esc="o.allergique_texte"/>
+              </t>
+            </div><br/><br/><br/>
+            <div><strong>-L'enfant suit-il un régime particulier ?:</strong>
+              <t t-if="o.regime">....OUI....<br/>
+               ....<span t-esc="o.regime_texte"/>....
+              </t>
+              <t t-if="not o.regime">....NON....<br/>
+               <span t-esc="o.regime_texte"/>
+              </t>
+            </div><br/><br/><br/>
+            <div><strong>-L'enfant doit-il prendre des médicaments durant la journée de classe ?:</strong>
+              <t t-if="o.medicament">....OUI....<br/>
+                ....<span t-esc="o.medicament_texte"/>....
+              </t>
+              <t t-if="not o.medicament">....Non....<br/>
+               <span t-esc="o.medicament_texte"/>
+              </t>
+            </div><br/><br/><br/>
+            <div><strong>-L'enfant souffre t-il ( de manière permanante ou régulière) de :</strong><br/>
+              <t t-if="o.diabete">-Diabète<br/>
+              </t>
+              <t t-if="o.asthme">-Asthme<br/>
+              </t>
+              <t t-if="o.affection_ca">-Affection Cardiaque<br/>
+              </t>
+              <t t-if="o.epilepsie">-Affection Cutanée<br/>
+              </t>
+              <t t-if="o.affection_cu">-Epilepsie<br/>
+              </t>
+            </div><br/><br/><br/>
+            </div>
+    </tr>
+    </div>
+    <div class="page">
+      <tr t-foreach="docs"  t-as="o"   >
+
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        </style>
+        <center><div style='position:absolute;top:20px;left:50px;'><h4><![CDATA[&Aacute;]]> RENSEIGNER :</h4></div></center>
+        <div style='position:absolute;top:120px;'>
+        <table class="tg" style="undefined;table-layout: fixed; width: 367px">
+          <tr>
+            <th class="tg-0pky">CLASSE</th>
+            <th class="tg-0pky">ANN<![CDATA[&Eacute;]]>E SCOLAIRE</th>
+            <th class="tg-0pky"><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[&nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[&Eacute;]]>COLE</th>
+          </tr>
+          <tr>
+            <td class="tg-0pky"><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>TPS</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky">Petits Héros </td>
+          </tr>
+          <tr>
+            <td class="tg-0pky"><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>PS</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky">Petits Héros</td>
+          </tr>
+          <tr>
+            <td class="tg-0pky"><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>MS</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky">Petits Héros</td>
+          </tr>
+          <tr>
+            <td class="tg-0pky"><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>GS</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky">Petits Héros</td>
+          </tr>
+        </table>
+
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg .tg-s268{text-align:left}
+        </style>
+        <br/><br/>
+        <table class="tg" style="undefined;table-layout: fixed; width: 361px">
+          <tr>
+            <th class="tg-s268"><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>RENSEIGNEMENTS PARENTS/TUTEURS</th>
+          </tr>
+        </table>
+<br/><br/>
+        <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-s6z2{text-align:center}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-s268{text-align:left}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 633px">
+  <tr>
+    <th class="tg-s6z2">IDENTITE DES PARENTS</th>
+    <th class="tg-s6z2">PERE</th>
+    <th class="tg-s6z2">MERE</th>
+    <th class="tg-s6z2">TUTEUR</th>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">NOM ET PRENOM</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">EMPLOYEUR</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">PROFESSION</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">TEL DOMICILE/ CEL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">TEL.BUREAU</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">ADRESSE POSTALE</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">EMAIL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+</table>
+</div>
+<p style="font-size: 18px;top:800px;left:100px;position:absolute;">Qui recevra les notifications de la vie scolaire ?</p><p style="font-size: 18px;top:800px;right:70px;position:absolute;">  Père<![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>Mère<![CDATA[ &nbsp; ]]><![CDATA[ &nbsp; ]]>Tuteur </p>
+<br/><br/>
+<p style="font-size: 18px;top:900px;right:130px;position:absolute;">Oran Le ...........................</p><br/><br/>
+<p style="font-size: 18px;top:1000px;left:50px;position:absolute;">Signature du parent</p>
+<p style="font-size: 18px;top:1000px;right:100px;position:absolute;">La direction</p>
+</tr>
+</div>
+</t>
+
+</template>
+ 
+
+
+<report 
+            id="custom_report_medicale"
+            model="gym.adherent"
+            string="Fiche Médicale d'information"
+            report_type="qweb-pdf"
+            name="gestion_adherent.report_fiche_medicale_id"
+            attachment_use="False"
+            file="gestion_adherent.report_fiche_medicale_id"
+        />
+
+        <record id="custom_report_medicale" model="ir.actions.report.xml">
+               <field name="paperformat_id" ref="paperformat_for_adherent"/> 
+       </record>
+</data>
+</openerp>

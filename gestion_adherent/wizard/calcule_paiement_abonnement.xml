@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_paieabonn_compute_wizard" model="ir.ui.view">
+            <field name="name">Calcule Paiement</field>
+            <field name="model">paiement.abonnement</field>
+            <field name="arch" type="xml">
+                <form string="Parametrs">
+                    <header>
+                    <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                    <group class='oe lef' col='6'>
+                        <field name='mode_p' style='width:auto; position:relative;'/>
+                        <field name='modalite' style='width:auto; position:relative;'/>
+                    </group>
+                    <group expand="0" col='4'  attrs="{'invisible': [('mode_p','=','seance')]}">
+                        <field name="debut" style='width:auto; position:relative;'/>                     
+                        <field name="adherent" style='width:auto; position:relative;'/>
+                        <field name="fin" style='width:auto; position:relative;'/>
+                        <field name="abonnement_id" onchange='onchange_contrat' style='width:auto; position:relative;'/>
+                        <field name='solde_jour' placeholder='Tapez nombre des jours' attrs="{'invisible': [('mode_p', '!=', 'jours')]}"/>  
+                        
+                    </group>
+
+                    <group  col='4' attrs="{'invisible': ['|',('mode_p', '=', 'mois'),('mode_p', '=', 'jours')]}">
+                        <field name='unit'><strong><label string='x'/></strong></field><field name='nb_seance'/>                      
+                    </group>
+                    <label string='Cochez pour ajouter garderier'/>
+                    <field name='garderier'/>
+                    <group  col='4' attrs="{'invisible': [('garderier', '=', False)]}">
+                        <field name='tarif_garderier'><strong><label string='x'/></strong></field><field name='nb_jour_garderier'/>
+                    </group> 
+                    <group>
+                    <field name="scholar"/>
+                    <field name="tarif_scholar" placeholder='Tarif frais scolaire 0.00' attrs="{'invisible': [('scholar', '=', False)]}"/>
+                    </group>
+                    <group>
+                        <field name='is_options'/>
+                    </group>
+                    <div class="oe_inline oe_right" style='width:auto;hight:40px;'>
+
+                        <field name='somme_options' invisible='True'/>
+                        <label string='Ajouter Remise'/><field name='add_remise'/>
+                        <field name='remise' attrs="{'invisible': [('add_remise','=',False)]}" style="color: green ; size=100%;width:auto;hight:40px;  font-size: 12px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                        <label string='Total:' class="oe_inline" style="color: #6A5ACD ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                        <field 
+                              name="tarif_a_payer" style="color: #6A5ACD ; size=100%;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);width:auto;hight:40px;"/><label string='DA' class="oe_inline" style="color: #6A5ACD ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                    </div>
+                    <group>
+                        <field name='net_payee' style="color:green; width:auto;hight:40px;  font-size: 14px;" />
+                        <field name='reste_a_payer' style="color:red; width:auto;hight:40px;  font-size: 14px;" />
+                    </group>
+                    <notebook>
+                    <page string='Produits' attrs="{'invisible': [('is_options','=',False)]}">
+                        <field name="options">
+                            <tree editable='bottom'>
+                                <field name='option' style='width:auto;'/>
+                                <field name='quantite'  style='width:auto;'/>
+                                <field name='qty_dispo'  style='width:auto;' onchange='get_disponible_qty'/>
+                                <field name='somme' sum='Total'/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string='Services' attrs="{'invisible': [('is_options','=',False)]}">
+                        <field name="services">
+                            <tree editable='bottom'>
+                                <field name='service' style='width:auto;'/>
+                                <field name='duree'     widget='float_time' />
+                                <field name='somme_service' sum='Total'/>
+                            </tree>
+                        </field>
+                    </page>
+                    </notebook>
+                    </sheet>
+                    <footer>
+                        <button name="paye_abonnement" string="Payer" type="object"  class="oe_highlight" confirm="Voulez vous vraiment effectuez cette opération?"/>
+                        ou
+                        <button string="Annuler" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+
+
+
+        <record id="view_paieabonn_compute_wizard_history_2" model="ir.ui.view">
+            <field name="name">Historiques de Paiement 2</field>
+            <field name="model">paiement.abonnement</field>
+            <field name="arch" type="xml">
+                <form string="History" name='hist' create="false">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                    <sheet>
+                    <div class="oe_title">
+                              <h1><field name="name" class="oe_inline"/></h1>
+                    </div>
+                    <group class='oe lef' col='6'>
+                        <field name='mode_p' style='width:auto; position:relative;'/>
+                        <field name='modalite' style='width:auto; position:relative;'/>
+                    </group>
+                    <group expand="0" col='4'  attrs="{'invisible': [('mode_p','=','seance')]}">
+                        <field name="debut" style='width:auto; position:relative;'/>                     
+                        <field name="adherent" style='width:auto; position:relative;'/>
+                        <field name="fin" style='width:auto; position:relative;'/>
+                        <field name="abonnement_id" style='width:auto; position:relative;'/>  
+                        
+                    </group>
+
+                    <group  col='4' attrs="{'invisible': ['|',('mode_p', '=', 'mois'),('mode_p', '=', 'jours')]}">
+                        <field name='unit'><strong><label string='x'/></strong></field><field name='nb_seance'/>                      
+                    </group>
+                    <label string='Cochez pour ajouter garderier'/>
+                    <field name='garderier'/>
+                    <group  col='4' attrs="{'invisible': [('garderier', '=', False)]}">
+                        <field name='tarif_garderier'><strong><label string='x'/></strong></field><field name='nb_jour_garderier'/>
+                    </group> 
+                    <group>
+                    <field name="scholar"/>
+                    <field name="tarif_scholar" placeholder='Tarif frais scolaire 0.00' attrs="{'invisible': [('scholar', '=', False)]}"/>
+                    </group>
+                    <group>
+                        <field name='is_options'/>
+                    </group>
+                    <div class="oe_inline oe_right" style='width:auto;hight:40px;'>
+
+           
+                        <label string='Ajouter Remise'/><field name='add_remise'/>
+                        <field name='remise' attrs="{'invisible': [('add_remise','=',False)]}" style="color: green ; size=100%;width:auto;hight:40px;  font-size: 12px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                        <label string='Total:' class="oe_inline" style="color: #6A5ACD ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                        <field 
+                              name="tarif_a_payer" style="color: #6A5ACD ; size=100%;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);width:auto;hight:40px;"/><label string='DA' class="oe_inline" style="color: #6A5ACD ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                    </div>
+                    <group>
+                        <field name='net_payee' style="color:green; width:auto;hight:40px;  font-size: 14px;" />
+                        <field name='reste_a_payer' style="color:red; width:auto;hight:40px;  font-size: 14px;" />
+                    </group>
+                    <notebook>
+                    <page string='Produits' attrs="{'invisible': [('is_options','=',False)]}">
+                        <field name="options">
+                            <tree editable='bottom'>
+                                <field name='option' style='width:auto;'/>
+                                <field name='quantite'  style='width:auto;'/>
+                                <field name='somme' sum='Total'/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string='Services' attrs="{'invisible': [('is_options','=',False)]}">
+                        <field name="services">
+                            <tree editable='bottom'>
+                                <field name='service' style='width:auto;'/>
+                                <field name='duree'     widget='float_time' />
+                                <field name='somme_service' sum='Total'/>
+                            </tree>
+                        </field>
+                    </page>
+                    </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_paieabonn_historique_tree" model="ir.ui.view">
+            <field name="name">Historique de paiement</field>
+            <field name="model">paiement.abonnement</field>
+            <field name="arch" type="xml">
+                <tree string="History" create="false" colors="brown:create_uid;">
+                        <field name="name"  style='width:auto;'/>
+                        <field name="tarif_a_payer"  style='width:auto;' sum='Total'/>
+                        <field name="adherent"  style='width:auto;'/>
+                        <field name="create_date" string="Effectué Le"  style='width:auto;'/>
+                        <field name="create_uid" string="Effectué Par"  style='width:auto;'/>
+                        <button name="open_record" type="object" icon="STOCK_INDEX"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_paieabonn_historique_tree_prod" model="ir.ui.view">
+            <field name="name">Historique de paiement produits</field>
+            <field name="model">gym.acheter.option</field>
+            <field name="arch" type="xml">
+                <tree string="Parametrs" create="false" colors="brown:create_uid;">
+                        <field name="option"   style='width:auto;'/>
+                        <field name="quantite" style='width:auto;'/>
+                        <field name="somme"     style='width:auto;' sum='Total'/>
+                        <field name="paiement_id"  style='width:auto;'/>
+                        <field name="create_uid" string="Effectué Par"  style='width:auto;'/>
+                        <field name="create_date" string="Effectué Le"  style='width:auto;'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_paieabonn_historique_tree_serice" model="ir.ui.view">
+            <field name="name">Historique de paiement services</field>
+            <field name="model">gym.acheter.service</field>
+            <field name="arch" type="xml">
+                <tree string="Parametrs" create="false" colors="brown:create_uid;">
+                        <field name="service"   style='width:auto;'/>
+                        <field name='duree'     widget='float_time'/>
+                        <field name="somme_service"     style='width:auto;' sum='Total'/>
+                        <field name="paiement_id"  style='width:auto;'/>
+                        <field name="create_uid" string="Effectué Par"  style='width:auto;'/>
+                        <field name="create_date" string="Effectué Le"  style='width:auto;'/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_options_tree" model="ir.ui.view">
+            <field name="name">Produits</field>
+            <field name="model">gym.option</field>
+            <field name="arch" type="xml">
+                <tree string="Parametrs" editable='bottom'>
+                        <field name="name"  style='width:auto;'/>
+                        <field name="quantite"  style='width:auto;' />          
+                        <field name="tarif"  style='width:auto;' sum='Total'/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_service_tree" model="ir.ui.view">
+            <field name="name">Services</field>
+            <field name="model">gym.service</field>
+            <field name="arch" type="xml">
+                <tree string="Parametrs" editable='bottom'>
+                        <field name="name"  style='width:auto;'/>
+                        <field name="unit_mesure" widget='float_time'  style='width:auto;' />          
+                        <field name="tarif"  style='width:auto;' sum='Total'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_paieabonn_compute_graph" model="ir.ui.view">
+            <field name="name">Calcule paiement</field>
+            <field name="model">paiement.abonnement</field>
+            <field name="arch" type="xml">
+                <graph string="Parametrs">
+                    <field name="tarif_a_payer" type="measure"/>
+                    <field name="net_payee" type="measure"/>
+                    <field name="reste_a_payer" type="measure"/>
+                    <field name="debut" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_paimenet_abonnement_filter" model="ir.ui.view">
+            <field name="name">paiement.abonnement.filter</field>
+            <field name="model">paiement.abonnement</field>
+            <field name="arch" type="xml">
+                <search string="Search paiement">
+                    <field name="tarif_a_payer" string="Montant" filter_domain="[]"/>
+                    <field name="fin"/>
+                    <field name='adherent'/>
+                    <field name='mode_p'/>
+                    <separator/>
+                    <filter string="tarif_a_payer" name="Montant" domain="[]"/>
+                    <separator/>
+                    <group expand="0" string="Group Par">
+                        <filter string="Montant Total" domain="[]" context="{'group_by':'tarif_a_payer'}"/>
+                        <filter string="Montant reçu" domain="[]" context="{'group_by':'net_payee'}"/>
+                        <filter string="Reste a payer" domain="[]" context="{'group_by':'reste_a_payer'}"/>
+                        <filter string="abonnement adherent" domain="[]" context="{'group_by':'abonnement_id'}"/>
+                        <filter string="Date debut" domain="[]" context="{'group_by':'debut'}"/>
+                        <filter string="adherent" name='adherent' domain="[]" context="{'group_by':'adherent'}"/>
+                        <filter string="Utilisateur" domain="[]" context="{'group_by':'create_uid'}"/>
+                       <filter string="Mode Paiement" domain="[]" context="{'group_by':'mode_p'}"/>
+                       <filter string="Date" name='create_auj' domain="[]" context="{'group_by':'create_date'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+
+        <record id="view_depense_form" model="ir.ui.view">
+                <field name="name">Les Dépenses</field>
+                <field name="model">depense.depense</field>
+                <field name="priority">14</field>
+                <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name='date'/>
+                        <field name='frais'/>
+                        <field name='bloc'/>
+                    </group>
+
+                </form>
+                </field>
+        </record>
+        <record id="view_depense_tree" model="ir.ui.view">
+                <field name="name">Les Dépenses</field>
+                <field name="model">depense.depense</field>
+                <field name="priority">14</field>
+                <field name="arch" type="xml">
+                    <tree editable='top' colors="black:bloc == False;red:bloc != False;">
+                        <field name="name"/>
+                        <field name='date'/>
+                        <field name='frais'/>
+                        <field name='bloc'/>
+                    </tree>
+                </field>
+        </record>
+
+
+        <record id="view_depense_graph" model="ir.ui.view">
+                <field name="name">Les Dépenses</field>
+                <field name="model">depense.depense</field>
+            <field name="arch" type="xml">
+                <graph string="Parametrs">
+                    <field name="frais" type="measure"/>
+                    <field name="date" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record id="view_depense_filter" model="ir.ui.view">
+                <field name="name">Les Dépenses</field>
+                <field name="model">depense.depense</field>
+            <field name="arch" type="xml">
+                <search string="Les dépenses">
+                    <field name="frais" string="Montant" filter_domain="[]"/>
+                    <field name="date"/>
+                    <separator/>
+                    <filter string="Montant" name="frais" domain="[]"/>
+                    <separator/>
+                    <group expand="0" string="Group Par">
+                        <filter string="Montant" domain="[]" context="{'group_by':'frais'}"/>
+                        <filter string="Date" domain="[]" context="{'group_by':'date'}"/>
+                        <filter string="Utilisateur" domain="[]" context="{'group_by':'create_uid'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+            <record id="action_paiement_abonnement_compute" model="ir.actions.act_window">
+                <field name="name">Opération de paiement</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">paiement.abonnement</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">form</field>
+                <field name="context">{'default_mode_p':'jours'}</field>
+                <field name="target">new</field>
+            </record>
+
+
+            <record id="action_option_paiement_prod" model="ir.actions.act_window">
+                <field name="name">Liste de produits</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gym.option</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+            </record>
+
+            <record id="action_depense_tree" model="ir.actions.act_window">
+                <field name="name">Liste dépenses</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">depense.depense</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form,search,graph</field>
+            </record>
+
+
+            <record id="action_service_paiement_service" model="ir.actions.act_window">
+                <field name="name">Liste des services</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gym.service</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+            </record>
+
+          <record id="action_paiement_abonnement_view_graph" model="ir.actions.act_window">
+              <field name="name">Statistiques</field>
+              <field name="res_model">paiement.abonnement</field>
+              <field name="view_mode">graph</field>
+              <!--field name="context">{"search_default_adherent":1}</field-->
+          </record>
+            
+
+          <record id="action_paieabonn_historique_tree" model="ir.actions.act_window">
+              <field name="name">Historique des paiements</field>
+              <field name="res_model">paiement.abonnement</field>
+              <field name="view_mode">tree</field>
+              <!--field name="context">{"search_default_create_auj":1}</field-->
+          </record>
+
+            <record id="action_paieabonn_historique_serice" model="ir.actions.act_window">
+              <field name="name">Historique des paiements</field>
+              <field name="res_model">gym.acheter.service</field>
+              <field name="view_mode">tree</field>
+              <field name="context">{'tree_view_ref':'gestion_adherent.view_paieabonn_historique_tree_serice'}</field>
+            </record>
+
+            <record id="action_paieabonn_historique_prod" model="ir.actions.act_window">
+              <field name="name">Historique des paiements</field>
+              <field name="res_model">gym.acheter.option</field>
+              <field name="view_mode">tree</field>
+              <field name="context">{'tree_view_ref':'gestion_adherent.view_paieabonn_historique_tree_prod'}</field>
+            </record>
+
+
+        <menuitem 
+        id="menu_open_view_ca_parent"
+        name="Historique et Statistiques"
+        sequence="3" 
+        parent="golden_gym_state" />
+
+
+        <menuitem 
+        action="action_paiement_abonnement_view_graph"
+        id="menu_open_view_ca_paiement_abonnement"
+        name="Recettes et Statistiques"
+        sequence="6" 
+        parent="menu_open_view_ca_parent" />
+
+
+        <menuitem 
+        action="action_depense_tree"
+        id="menu_open_view_depense"
+        name="Dépenses"
+        sequence="7" 
+        parent="menu_open_view_ca_parent" />
+
+        <menuitem 
+    
+        id="menu_open_view_historique_paiement_abonnement_parent"
+        name="Historique des paiements"
+        sequence="13" 
+        parent="menu_open_view_ca_parent" />
+
+        <menuitem 
+        action="action_paieabonn_historique_tree"
+        id="menu_open_view_historique_paiement_abonnement"
+        name="Tous"
+        sequence="1" 
+        parent="menu_open_view_historique_paiement_abonnement_parent"/>
+
+        <menuitem 
+        action="action_paieabonn_historique_prod"
+        id="menu_open_view_historique_paiement_prod"
+        name="Produits vendus"
+        sequence="2" 
+        parent="menu_open_view_historique_paiement_abonnement_parent"/>
+
+        <menuitem 
+        action="action_paieabonn_historique_serice"
+        id="menu_open_view_historique_paiement_service"
+        name="Services payés"
+        sequence="2" 
+        parent="menu_open_view_historique_paiement_abonnement_parent"/>
+
+        <menuitem 
+        action="action_paiement_abonnement_compute"
+        id="menu_open_view_paiement_seance_abonnement"
+        name="Ventes"
+        sequence="12" 
+        parent="gym_adherent_vente_parent" />
+
+
+        <menuitem 
+        id="menu_open_view_product_service"
+        name="Produits&amp;Services"
+        sequence="13" 
+        parent="golden_gym_ventes" />
+
+
+        <menuitem 
+        action="action_option_paiement_prod"
+        id="menu_open_view_product_id"
+        name="Nos produits"
+        sequence="1" 
+        parent="menu_open_view_product_service" />
+
+
+        <menuitem 
+        action="action_service_paiement_service"
+        id="menu_open_view_service_id"
+        name="Nos services"
+        sequence="2" 
+        parent="menu_open_view_product_service" />
+
+
+    <menuitem 
+        action="open_view_programme"
+        id="menu_open_view_gym_programme"
+        name="Programmes"
+        sequence="10" 
+        parent="menu_open_view_ca_parent" />
+
+
+
+
+    </data>
+</openerp>

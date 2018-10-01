@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+       <data noupdate="1">
+
+        <record id="Absents_groupe" model="gym.group">
+            <field name='name'>Absents</field>
+            <field name='sequence'>10</field>
+        </record>
+
+
+         
+  </data>
+</openerp>

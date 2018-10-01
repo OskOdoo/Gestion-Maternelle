@@ -1,0 +1,28 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_gerant_gym_adherent","GERANT 1","model_gym_adherent","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_abonnement","GERANT 2","model_gym_abonnement","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_type_abonnement","GERANT 3","model_type_abonnement","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_jour_heure","GERANT 4","model_jour_heure","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_emplois_t","GERANT 5","model_emplois_du_temps","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_gym_programme","GERANT 13","model_gym_programme","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_tache","GERANT 6","model_gym_tache","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_group","GERANT 7","model_gym_group","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_paiement_abonnement","GERANT 8","model_paiement_abonnement","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_service","GERANT 9","model_gym_service","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_option","GERANT 10","model_gym_option","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_acheter_option","GERANT 11","model_gym_acheter_option","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_gym_acheter_service","GERANT 12","model_gym_acheter_service","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_parent_child","GERANT 13","model_parent_child","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_depense","GERANT 14","model_depense_depense","gestion_adherent.group_gerant_user",1,1,1,1
+"access_gerant_recette","GERANT 15","model_recette_recette","gestion_adherent.group_gerant_user",1,1,1,1
+
+
+
+
+
+
+
+
+
+
+

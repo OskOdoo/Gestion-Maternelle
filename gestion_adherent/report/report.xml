@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data noupdate='0'>
+
+
+<template id="report_fiche_carte_adh">
+        
+    <t>
+         
+    <div class="page">
+        <div style='position:relative;top:150px;'>
+        <tr t-foreach="docs"  t-as="o"   > 
+        <table style="border:1px;solid:black;">
+        <tbody>
+        <tr>
+        <td><center><strong><h5>CARTE D'ADHERENT <span t-field="o.write_date" t-field-options='{"format":{"D/MM/YYYY"}' /></h5></strong></center></td>
+        </tr>
+        <tr>
+        <td>
+        <div style="fond-size:20px;"><strong>Nom:</strong> <span t-field="o.name"/><br/></div>
+        <div style="fond-size:20px;"><strong>Prénom:</strong> <span t-field="o.prenom"/><br/></div>
+        <div style="fond-size:20px;"><strong>Date de naissance:</strong> <span t-field="o.date_nais"/><br/></div>
+        <div style="fond-size:20px;"><strong>Date d'entrée:</strong> <span t-field="o.date_debut"/><br/></div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </tr>
+        </div>
+    </div>
+</t>
+</template>
+ 
+<!--report 
+            id="custom_report_fiche_adherent"
+            model="gym.adherent"
+            string="Carte d'adherent"
+            report_type="qweb-pdf"
+            name="gestion_adherent.report_fiche_carte_adh"
+            attachment_use="False"
+            file="gestion_adherent.report_fiche_carte_adh"
+        />
+
+        <record id="custom_report_fiche_adherent" model="ir.actions.report.xml">
+               <field name="paperformat_id" ref="paperformat_for_adherent"/> 
+       </record-->
+</data>
+</openerp>

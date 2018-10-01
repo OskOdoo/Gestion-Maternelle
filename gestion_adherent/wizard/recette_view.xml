@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_recette_wizard" model="ir.ui.view">
+            <field name="name">Calcule Bénifice</field>
+            <field name="model">recette.recette</field>
+            <field name="arch" type="xml">
+                <form string="Bénifice">
+                    <group col='6' colspan='4'>
+                        <field name="date_debut" style='width:auto;'/>
+                        <field name="date_fin" style='width:auto;'/>
+                    </group>
+                    <div class="oe_left">
+                        <label string='Paiements Effectuées :' class="oe_inline" style="color:black ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/><field name="nombre_paiem" style='width:auto;font-size: 25px;'/><label string='fois' class="oe_inline" style="color: #6A5ACD ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                    </div>
+                    <div class="oe_right">
+                     <img class="img img-responsive" align="center"  src="/gestion_adherent\static\img\beni.png" style="  max-width: 50% ; position: right; margin-top: 25; margin-left: 10;padding:center;font-family:'palatino linotype', palatino, serif;" />
+                     </div>
+                    <group col='2' colspan='4'>
+                        <field name="recette" style='width:auto;color:blue ; size=150%;  font-size: 25px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);'/>
+                        <field name="depense" style='width:auto;color:red ; size=150%;  font-size: 25px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);'/>
+                    </group>
+                    <div class="oe_inline oe_right" style='width:auto;hight:40px;'>
+                    <label string='Bénifices :' class="oe_inline" style="color:black ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                        <field name="benfice" style='width:auto;color:green ; size=400%;  font-size: 36px;text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);width:auto;hight:40px;"'/><label string='DA' class="oe_inline" style="color: #6A5ACD ; size=200%;width:auto;hight:40px;  font-size: 20px;  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.44);"/>
+                    </div>
+                    
+                 </form>
+             </field>
+         </record>
+                  
+            <record id="action_benefice_recette" model="ir.actions.act_window">
+                <field name="name">Calcule Bénifice</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">recette.recette</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">form</field>
+                <field name="target">new</field>
+            </record>
+
+        <menuitem 
+        action="action_benefice_recette"
+        id="menu_open_view_benifice"
+        name="Bénifice"
+        sequence="8" 
+        parent="menu_open_view_ca_parent" />
+
+
+    </data>
+</openerp>

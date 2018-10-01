@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data noupdate="1">
+        <record id="seq_type_abonn_id" model="ir.sequence.type"> 
+          <field name="name">REG Abonnement</field> 
+          <field name="code">reg_code_abonn</field> 
+        </record> 
+        <record id="seq_abonnement_id" model="ir.sequence"> 
+            <field name="name">reg_a</field> 
+            <field name="code">reg_code_abonn</field> 
+            <field name="prefix"></field> 
+            <field name="padding">3</field> 
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="seq_paiement_id" model="ir.sequence.type"> 
+          <field name="name">REG Paiement</field> 
+          <field name="code">reg_code_paie</field> 
+        </record> 
+        <record id="seq_paie_id" model="ir.sequence"> 
+            <field name="name">reg_p</field> 
+            <field name="code">reg_code_paie</field> 
+            <field name="prefix"></field> 
+            <field name="padding">4</field> 
+        </record>
+    </data>
+</openerp>
